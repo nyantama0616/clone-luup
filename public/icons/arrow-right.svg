@@ -1,6 +1,1 @@
-<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g id="arrow-right">
-<path id="Vector" d="M5 12H19" stroke="#00D1B2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path id="Vector_2" d="M12 5L19 12L12 19" stroke="#00D1B2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-</g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="19.951" height="13.728" viewBox="0 0 19.951 13.728"><g transform="translate(-320 -700.88)"><path d="M13.742.756,18.676,7l-4.934,6.244" transform="translate(320 700.744)" fill="none" stroke="#00b6ac" stroke-width="2"/><path d="M0,0H18.638" transform="translate(320 707.5)" fill="none" stroke="#00b6ac" stroke-width="2"/></g></svg>

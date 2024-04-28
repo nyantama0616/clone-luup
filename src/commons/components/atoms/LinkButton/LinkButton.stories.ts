@@ -2,6 +2,8 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 import LinkButton from './LinkButton';
 
+//TODO: Clickのテストを追加する
+
 const meta = {
     title: 'Commons/Atoms/LinkButton',
     component: LinkButton,
@@ -10,11 +12,11 @@ const meta = {
         design: {
             type: 'figspec',
             url: 'https://www.figma.com/file/V1Jc8FtD0AhETelXn7Eahp/Clone-Luup?type=design&node-id=1-29&mode=design&t=X1yBXirXxCpGUUJg-11',
-        }
+        },
     },
     tags: ['autodocs'],
     argTypes: {
-
+        onClick: { action: 'clicked' },
     },
     args: { onClick: fn() },
 } satisfies Meta<typeof LinkButton>;
