@@ -11,6 +11,19 @@ services:
       - .:/app
       - node_modules:/app/node_modules
     command: sh -c "npm run dev"
+  
+  storybook:
+    platform: linux/amd64 # M1 Macだと必要
+    build:
+      context: .
+    tty: true
+    environment:
+      - WATCHPACK_POLLING=true
+    ports:
+      - "6006:6006"
+    volumes:
+      - .:/app
+    command: sh -c "npm run storybook"
 
 volumes:
   node_modules:
