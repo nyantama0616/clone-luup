@@ -16,6 +16,10 @@ const config: Config = {
       white: "#ffffff",
       primary: "#00d1b2",
       dark: "#363636",
+      gray: {
+        100: "#f9f9f9",
+        200: "#d5d5d5",
+      }
     },
   },
   plugins: [],
