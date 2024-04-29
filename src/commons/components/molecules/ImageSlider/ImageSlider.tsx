@@ -1,6 +1,10 @@
+// "use client";
+
+import { useEffect, useState } from "react";
 import ImageInfo from "@/commons/classes/ImageInfo";
 import GeneralProps from "@/commons/types/GeneralProps";
 import MyImage from "../../atoms/MyImage/MyImage";
+import "./ImageSlider.css";
 
 // TODO: 動かす
 
@@ -9,7 +13,9 @@ interface ImageSliderProps extends GeneralProps {
 }
 
 function ImageSlider({ imageInfos }: ImageSliderProps) {
-    const images = imageInfos.map((imageInfo, index) => (
+    const controller = useImageSlider(imageInfos);
+
+    const images = controller.imageInfos.map((imageInfo, index) => (
         // TODO: 綺麗に横に並べる
         <div style={{width: 220}}>
             <MyImage
@@ -20,11 +26,40 @@ function ImageSlider({ imageInfos }: ImageSliderProps) {
     ));
 
     return (
-        <div className="flex flex-nowrap items-center space-x-4">
-        {/* <div className=""> */}
+        <div className="flex flex-nowrap items-center space-x-16 slide-left">
             {images}
         </div>
     )
+}
+
+interface ImageSliderController {
+    imageInfos: ImageInfo[];
+}
+
+function useImageSlider(initialImageInfos: ImageInfo[]): ImageSliderController {
+    // const [imageInfos, setImageInfos] = useState<ImageInfo[]>(initialImageInfos);
+
+    // function slide() {
+    //     setImageInfos(prev => {
+    //         const newImageInfos = [...prev];
+    //         const first = newImageInfos.shift();
+    //         newImageInfos.push(first!);
+    //         return newImageInfos;
+    //     });
+    // }
+
+    // useEffect(() => {
+    //     const interval = setInterval(slide, 3000);
+    //     return () => clearInterval(interval);
+    // }, []);
+
+    // return {
+    //     imageInfos,
+    // };
+
+    return {
+        imageInfos: initialImageInfos,
+    }
 }
 
 export default ImageSlider;
