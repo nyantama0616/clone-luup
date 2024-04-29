@@ -6,15 +6,11 @@ interface MyImageProps {
      * Image Path
      */
     path: ImagePaths;
-
-    //TODO: widthとか指定しなくても、自動でサイズを調整するようにする
-    width: number;
-    height: number;
 }
 
-function MyImage({ path, width, height }: MyImageProps) {
+function MyImage({ path }: MyImageProps) {
     return (
-        <Image src={path} alt="Image" width={width} height={height} className="rounded-md"/>
+        <Image src={path} alt="Image" width={0} height={0} layout="responsive" className="rounded-md"/>
     )
 }
 
