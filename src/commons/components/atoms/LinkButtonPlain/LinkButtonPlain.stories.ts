@@ -1,0 +1,29 @@
+import type { Meta, StoryObj } from '@storybook/react';
+import { fn } from '@storybook/test';
+import LinkButtonPlain from './LinkButtonPlain';
+
+//TODO: Clickのテストを追加する
+
+const meta = {
+    title: 'Commons/Atoms/LinkButtonPlain',
+    component: LinkButtonPlain,
+    parameters: {
+        layout: 'centered',
+    },
+    tags: ['autodocs'],
+    argTypes: {
+        onClick: { action: 'clicked' },
+    },
+    args: { onClick: fn() },
+} satisfies Meta<typeof LinkButtonPlain>;
+
+export default meta;
+
+type Story = StoryObj<typeof meta>;
+
+export const News: Story = {
+    args: {
+        label: "News",
+        width: "100px",
+    },
+};
