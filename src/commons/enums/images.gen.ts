@@ -1,7 +1,8 @@
 
       import ImageInfo from "../classes/ImageInfo";
       const ImageInfos = {
-    		AdApa: new ImageInfo("images/ad/apa.webp", 400, 275),
+    		StaticMapService: new ImageInfo("images/StaticMapService.png", 691, 500),
+		AdApa: new ImageInfo("images/ad/apa.webp", 400, 275),
 		AdFamilymart: new ImageInfo("images/ad/familymart.webp", 400, 72),
 		AdJrHigashi: new ImageInfo("images/ad/jrHigashi.webp", 400, 118),
 		AdJrNishi: new ImageInfo("images/ad/jrNishi.webp", 400, 45),
