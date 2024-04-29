@@ -1,10 +1,12 @@
 import LinkButtonUnderLined from "@/commons/components/atoms/LinkButtonUnderLined/LinkButtonUnderLined";
+import NavWindowBase, { NavWindowProps } from "../NavWindowBase";
 
-function NavWindowCompanyInfo() {
+function NavWindowCompanyInfo({ className="", onMouseLeave }: NavWindowProps) {
     const width = "250px";
+    const _className = `grid grid-cols-2 gap-4 p-8 ${className}`;
     
     return (
-        <div className="rounded-md bg-white grid grid-cols-2 gap-4 p-8">
+        <NavWindowBase className={_className} onMouseLeave={onMouseLeave} width="600px">
             <LinkButtonUnderLined
                 label="企業情報"
                 width={width}
@@ -14,7 +16,7 @@ function NavWindowCompanyInfo() {
                 label="採用情報"
                 width={width}
             />
-        </div>
+        </NavWindowBase>
     )
 }
 

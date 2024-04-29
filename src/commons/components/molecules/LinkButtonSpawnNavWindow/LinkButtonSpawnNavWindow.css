@@ -1,0 +1,7 @@
+.spawned {
+    position: absolute;
+    top: 120%;
+    left: 50%;
+    /* background-color: red; */
+    transform: translateX(-50%);
+}

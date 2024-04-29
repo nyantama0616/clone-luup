@@ -1,10 +1,13 @@
 import LinkButtonUnderLined from "@/commons/components/atoms/LinkButtonUnderLined/LinkButtonUnderLined";
+import GeneralProps from "@/commons/types/GeneralProps";
+import NavWindowBase, { NavWindowProps} from "../NavWindowBase";
 
-function NavWindowPortMap() {
+function NavWindowPortMap({className="", onMouseLeave}: NavWindowProps) {
     const width = "100px";
-    
+    const _className = `grid grid-cols-4 gap-4 p-8 ${className}`;
+
     return (
-        <div className="rounded-md bg-white grid grid-cols-4 gap-4 p-8">
+        <NavWindowBase className={_className} onMouseLeave={onMouseLeave} width="500px">
             <LinkButtonUnderLined
                 label="東京"
                 width={width}
@@ -26,7 +29,7 @@ function NavWindowPortMap() {
             />
 
             {/* TODO: 「その他の街」を追加する */}
-        </div>
+        </NavWindowBase>
     )
 }
 
