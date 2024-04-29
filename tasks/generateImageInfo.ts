@@ -50,7 +50,7 @@ class ImageInfoGenerator {
         const dirPathFromImages = dirPath.slice(imagesIndex);
         const fileName = path.basename(filePath);
 
-        instances.push(`\t\t${instanceName}: new ImageInfo("${dirPathFromImages}/${fileName}", ${width}, ${height}),`);
+        instances.push(`\t\t${instanceName}: new ImageInfo("/${dirPathFromImages}/${fileName}", ${width}, ${height}),`);
       }
     }
   }
