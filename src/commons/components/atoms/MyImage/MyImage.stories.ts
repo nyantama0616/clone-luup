@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import MyImage from './MyImage';
-import ImagePaths from "@/images";
+import ImageInfos from '@/commons/enums/images.gen';
 
 const meta = {
     title: 'Commons/Atoms/MyImage',
@@ -18,12 +18,18 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
     args: {
-        path: ImagePaths.Logo,
+        info: ImageInfos.Logo,
     },
 };
 
 export const Why0: Story = {
     args: {
-        path: ImagePaths.Why0,
+        info: ImageInfos.Why0,
+    },
+};
+
+export const Familymart: Story = {
+    args: {
+        info: ImageInfos.AdFamilymart,
     },
 };

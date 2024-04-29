@@ -39,3 +39,6 @@ next-env.d.ts
 
 src/stories/*
 .env
+
+tasks/tmp/*
+!tasks/tmp/.keep
