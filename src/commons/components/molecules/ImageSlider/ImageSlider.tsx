@@ -17,9 +17,8 @@ function ImageSlider({ imageInfos }: ImageSliderProps) {
 
     const images = controller.imageInfos.map((imageInfo, index) => (
         // TODO: 綺麗に横に並べる
-        <div style={{width: 220}}>
+        <div style={{width: 220}} key={index.toString()}>
             <MyImage
-                key={index}
                 info={imageInfo.changeHeight(80)}
             />
         </div>
