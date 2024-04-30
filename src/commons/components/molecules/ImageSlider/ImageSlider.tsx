@@ -12,20 +12,23 @@ interface ImageSliderProps extends GeneralProps {
     imageInfos: ImageInfo[];
 }
 
-function ImageSlider({ imageInfos }: ImageSliderProps) {
+function ImageSlider({ imageInfos, width="220px", height="80px" }: ImageSliderProps) {
+    const _width = parseInt(width.replace("px", ""));
+    const _height = parseInt(height.replace("px", ""));
     const controller = useImageSlider(imageInfos);
 
     const images = controller.imageInfos.map((imageInfo, index) => (
         // TODO: 綺麗に横に並べる
-        <div style={{width: 220}} key={index.toString()}>
+        <div style={{width: _width}} key={index.toString()}>
             <MyImage
-                info={imageInfo.changeHeight(80)}
+                info={imageInfo.changeHeight(_height)}
             />
         </div>
     ));
 
     return (
-        <div className="flex flex-nowrap items-center space-x-16 slide-left">
+        // <div className="flex flex-nowrap items-center space-x-16 slide-left">
+        <div className="flex flex-nowrap items-center space-x-16">
             {images}
         </div>
     )

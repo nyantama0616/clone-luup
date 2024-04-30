@@ -8,12 +8,12 @@ interface PortMapProps extends GeneralProps {
 
 }
 
-function PortMap({ width="100px", height="100px" }: PortMapProps) {
-    const _width = parseInt(width.replace("px", ""));
+function PortMap({ className="" }: PortMapProps) {
+    const _className = `bg-gray-200 ${className}`;
 
     return (
-        <div className="bg-gray-200" style={{width: width, height: height}}>
-            <MyImage info={ImageInfos.StaticMapService.changeWidth(_width)} />
+        <div className={_className}>
+            <MyImage info={ImageInfos.StaticMapService} />
         </div>
     );
 }
