@@ -6,18 +6,18 @@ import LinkButton from "../../atoms/LinkButton/LinkButton";
 function Overview() {
     return (
         <div className="overview flex flex-col space-y-8 items-center">
-            <div className="flex space-x-8">
-                <div className="flex flex-col space-y-8">
+            <div className="flex space-x-4">
+                <div className="flex flex-col space-y-8 m-8">
                     <CatchCopy />
                     <div className="flex flex-col space-y-4">
                         <LinkButton
                             label="新しい交通ルールをチェック"
-                            width="300px"
+                            className="w-[300px]"
                         />
                         
                         <LinkButton
                             label="ポート設置のご相談"
-                            width="300px"
+                            className="w-[300px]"
                         />
                     </div>
                 </div>
