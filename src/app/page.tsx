@@ -4,6 +4,7 @@ import Advertise from "@/commons/components/organisms/Advertise/Advertise";
 import WhyLuup from "@/commons/components/organisms/WhyLuup/WhyLuup";
 import Port from "@/commons/components/organisms/Port/Port";
 import Service from "@/commons/components/organisms/Service/Service";
+import News from "@/commons/components/organisms/News/News";
 
 function HomePage() {
     return (
@@ -14,6 +15,7 @@ function HomePage() {
             <WhyLuup />
             <Port />
             <Service />
+            <News />
         </div>
     )
 }
