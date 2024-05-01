@@ -1,7 +1,9 @@
 
       import ImageInfo from "../classes/ImageInfo";
       const ImageInfos = {
-    		StaticMapService: new ImageInfo("/images/StaticMapService.png", 691, 500),
+    		ServiceAbout: new ImageInfo("/images/ServiceAbout.webp", 800, 1105),
+		ServiceMobility: new ImageInfo("/images/ServiceMobility.webp", 800, 1160),
+		StaticMapService: new ImageInfo("/images/StaticMapService.png", 691, 500),
 		AdApa: new ImageInfo("/images/ad/apa.webp", 400, 275),
 		AdFamilymart: new ImageInfo("/images/ad/familymart.webp", 400, 72),
 		AdJrHigashi: new ImageInfo("/images/ad/jrHigashi.webp", 400, 118),
@@ -24,6 +26,7 @@
 		Port1: new ImageInfo("/images/port1.webp", 1440, 1080),
 		Port2: new ImageInfo("/images/port2.webp", 1440, 1080),
 		Port3: new ImageInfo("/images/port3.webp", 1440, 1080),
+		ServiceUsage: new ImageInfo("/images/serviceUsage.webp", 800, 1160),
 		Why0: new ImageInfo("/images/why0.webp", 1500, 1000),
 		Why1: new ImageInfo("/images/why1.webp", 1500, 964),
 		Why2: new ImageInfo("/images/why2.webp", 1500, 916),

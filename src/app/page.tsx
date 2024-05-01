@@ -3,6 +3,7 @@ import Overview from "@/commons/components/organisms/Overview/Overview";
 import Advertise from "@/commons/components/organisms/Advertise/Advertise";
 import WhyLuup from "@/commons/components/organisms/WhyLuup/WhyLuup";
 import Port from "@/commons/components/organisms/Port/Port";
+import Service from "@/commons/components/organisms/Service/Service";
 
 function HomePage() {
     return (
@@ -11,7 +12,8 @@ function HomePage() {
             <Overview />
             <Advertise />
             <WhyLuup />
-            <Port/>
+            <Port />
+            <Service />
         </div>
     )
 }
