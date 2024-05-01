@@ -7,7 +7,7 @@ import ImageInfos from "@/commons/enums/images.gen";
 function News() {
     return (
         <div className="flex justify-center">
-            <div className="grid grid-cols-4 gap-16 w-[1100px] bg-white">
+            <div className="grid grid-cols-4 gap-16 w-[1100px] bg-white p-16 rounded-md">
                 <div className="col-span-1 flex flex-col space-y-4">
                     <div>
                         <h1 className="text-5xl">News</h1>
