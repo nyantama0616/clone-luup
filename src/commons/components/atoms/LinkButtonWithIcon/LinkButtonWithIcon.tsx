@@ -11,7 +11,7 @@ interface LinkButtonWithIconProps extends LinkButtonProps {
 
 //TODO: h-11消したい
 function LinkButtonWithIcon({ label, to, className }: LinkButtonWithIconProps) {
-    const _className = `bg-white h-11 rounded-md border border-neutral-200 justify-between items-center gap-2.5 inline-flex text-dark hover:bg-dark hover:text-white ${className}`;
+    const _className = `h-11 rounded-md border border-neutral-200 justify-between items-center gap-2.5 inline-flex text-dark hover:bg-dark hover:text-white ${className}`;
 
     return (
         <LinkButtonBase to={to} className={_className}>

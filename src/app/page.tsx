@@ -6,6 +6,7 @@ import Port from "@/commons/components/organisms/Port/Port";
 import Service from "@/commons/components/organisms/Service/Service";
 import News from "@/commons/components/organisms/News/News";
 import HelpAndRecruit from "@/commons/components/organisms/HelpAndRecruit/HelpAndRecruit";
+import PortEstablish from "@/commons/components/organisms/PortEstablish/PortEstablish";
 
 function HomePage() {
     return (
@@ -18,6 +19,7 @@ function HomePage() {
             <Service />
             <News />
             <HelpAndRecruit />
+            <PortEstablish />
         </div>
     )
 }

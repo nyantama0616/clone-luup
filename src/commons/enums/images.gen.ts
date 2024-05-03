@@ -23,6 +23,7 @@
 		FirstView: new ImageInfo("/images/firstView.webp", 2804, 1822),
 		Logo: new ImageInfo("/images/logo.webp", 522, 226),
 		LuupRide: new ImageInfo("/images/luupRide.webp", 1120, 1280),
+		NewPort: new ImageInfo("/images/newPort.webp", 1520, 968),
 		News0: new ImageInfo("/images/news0.png", 1207, 631),
 		News1: new ImageInfo("/images/news1.png", 1810, 947),
 		News2: new ImageInfo("/images/news2.jpg", 1366, 762),
