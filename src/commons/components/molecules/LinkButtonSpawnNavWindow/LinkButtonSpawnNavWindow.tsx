@@ -40,7 +40,7 @@ interface LinkButtonSpawnNavWindowController {
 }
 
 function useLinkButtonNavWindow(): LinkButtonSpawnNavWindowController {
-    const [isHovered, setIsHovered] = useState(false);
+    const [isHovered, setIsHovered] = useState(true);
     
     function handleMouseEnter() {
         setIsHovered(true);
