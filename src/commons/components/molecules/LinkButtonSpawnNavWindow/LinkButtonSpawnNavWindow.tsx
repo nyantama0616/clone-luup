@@ -16,7 +16,6 @@ interface LinkButtonSpawnNavWindowProps {
 
 function LinkButtonSpawnNavWindow({ label, navWindow }: LinkButtonSpawnNavWindowProps) {
     const { isHovered, handleMouseEnter, handleMouseLeave } = useLinkButtonNavWindow();
-    // const navWindowWithProps = React.cloneElement(navWindow, { className: "spawned", onMouseLeave: handleMouseLeave });
     const navWindowWithProps = React.cloneElement(navWindow, { className: "spawned" });
 
     return (
@@ -40,7 +39,7 @@ interface LinkButtonSpawnNavWindowController {
 }
 
 function useLinkButtonNavWindow(): LinkButtonSpawnNavWindowController {
-    const [isHovered, setIsHovered] = useState(true);
+    const [isHovered, setIsHovered] = useState(false);
     
     function handleMouseEnter() {
         setIsHovered(true);

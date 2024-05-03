@@ -31,7 +31,6 @@ function Header() {
                     <li>
                         <LinkButtonPlain
                             label="News"
-                            width="100px"
                         />
                     </li>
                     <li>
