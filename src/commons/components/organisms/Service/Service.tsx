@@ -2,7 +2,7 @@ import GhostText from "../../atoms/GhoastText/GhoastText";
 import MyImage from "../../atoms/MyImage/MyImage";
 import ImageInfos from "@/commons/enums/images.gen";
 import ImageInfo from "@/commons/classes/ImageInfo";
-import LinkButton from "../../atoms/LinkButton/LinkButton";
+import LinkButtonWithIcon from "../../atoms/LinkButtonWithIcon/LinkButtonWithIcon";
 
 function Service() {
     return (
@@ -23,7 +23,7 @@ function Service() {
             {/* TODO: 画像付きにする */}
             {/* TODO: 親要素のspace-y-8のせいで子要素にmarginを指定できないため、divで囲っいる */}
             <div>
-                <LinkButton label="新しい交通ルールについて" className="w-[350px] mt-16"/>
+                <LinkButtonWithIcon label="新しい交通ルールについて" className="w-[350px] mt-16"/>
             </div>
         </div>
     );

@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
-import LinkButton from './LinkButton';
+import LinkButtonWithIcon from './LinkButtonWithIcon';
 
 //TODO: Clickのテストを追加する
 
 const meta = {
-    title: 'Commons/Atoms/LinkButton',
-    component: LinkButton,
+    title: 'Commons/Atoms/LinkButtonWithIcon',
+    component: LinkButtonWithIcon,
     parameters: {
         layout: 'centered',
         design: {
@@ -19,7 +19,7 @@ const meta = {
         onClick: { action: 'clicked' },
     },
     args: { onClick: fn() },
-} satisfies Meta<typeof LinkButton>;
+} satisfies Meta<typeof LinkButtonWithIcon>;
 
 export default meta;
 
@@ -34,13 +34,11 @@ export const Default: Story = {
 export const NewTrafic: Story = {
     args: {
         label: "新しい交通ルールをチェック",
-        width: "300px",
     },
 };
 
 export const portEstablish: Story = {
     args: {
         label: "ポート設置のご相談",
-        width: "300px",
     },
 };

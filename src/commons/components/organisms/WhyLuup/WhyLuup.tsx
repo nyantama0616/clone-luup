@@ -2,7 +2,7 @@ import React from "react";
 import GhostText from "../../atoms/GhoastText/GhoastText";
 import MyImage from "../../atoms/MyImage/MyImage";
 import ImageInfos from "@/commons/enums/images.gen";
-import LinkButton from "../../atoms/LinkButton/LinkButton";
+import LinkButtonWithIcon from "../../atoms/LinkButtonWithIcon/LinkButtonWithIcon";
 
 function WhyLuup() {
     return (
@@ -45,7 +45,7 @@ function WhyLuup() {
 
                 <div className="flex flex-col items-center space-y-4">
                     <p>なぜLUUPを社会実装するのか？</p>
-                    <LinkButton label="Why LUUP"/>
+                    <LinkButtonWithIcon label="Why LUUP"/>
                 </div>
             </div>
         </div>

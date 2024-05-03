@@ -1,7 +1,7 @@
 import GhostText from "../../atoms/GhoastText/GhoastText";
 import ImageSlider from "../../molecules/ImageSlider/ImageSlider";
 import ImageInfos from "@/commons/enums/images.gen";
-import LinkButton from "../../atoms/LinkButton/LinkButton";
+import LinkButtonWithIcon from "../../atoms/LinkButtonWithIcon/LinkButtonWithIcon";
 import PortMap from "../../molecules/PortMap/PortMap";
 
 function Port() {
@@ -40,7 +40,7 @@ function Port() {
                 </div>
 
                 <div className="h-[96px] flex items-center">
-                    <LinkButton label="ポート設置をご検討の方へ" width="300px"/>
+                    <LinkButtonWithIcon label="ポート設置をご検討の方へ" width="300px"/>
                 </div>
             </div>
 
@@ -59,10 +59,10 @@ function Port() {
 
                     <div className="grid grid-cols-2 gap-2 w-full">
                         {/* TODO: アイコンなしにする */}
-                        <LinkButton label="東京" />
-                        <LinkButton label="大阪" />
-                        <LinkButton label="横浜" />
-                        <LinkButton label="京都" />
+                        <LinkButtonWithIcon label="東京" />
+                        <LinkButtonWithIcon label="大阪" />
+                        <LinkButtonWithIcon label="横浜" />
+                        <LinkButtonWithIcon label="京都" />
                         {/* TODO: その他を追加 */}
                     </div>
                 </div>
@@ -73,7 +73,7 @@ function Port() {
             <div className="flex justify-between w-[700px]">
                 <div className="flex flex-col items-center space-y-2">
                     <p>物件オーナー・管理者の方</p>
-                    <LinkButton
+                    <LinkButtonWithIcon
                         label="ポート設置をご検討の方へ"
                         width="300px"
                     />
@@ -81,7 +81,7 @@ function Port() {
 
                 <div className="flex flex-col items-center space-y-2">
                     <p>ユーザーの方</p>
-                    <LinkButton
+                    <LinkButtonWithIcon
                         label="ポート設置リクエスト"
                         width="300px"
                     />

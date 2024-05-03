@@ -1,7 +1,7 @@
 import CatchCopy from "../../molecules/CatchCopy/CatchCopy";
 import MyImage from "../../atoms/MyImage/MyImage";
 import ImageInfos from "@/commons/enums/images.gen";
-import LinkButton from "../../atoms/LinkButton/LinkButton";
+import LinkButtonWithIcon from "../../atoms/LinkButtonWithIcon/LinkButtonWithIcon";
 
 function Overview() {
     return (
@@ -10,12 +10,12 @@ function Overview() {
                 <div className="flex flex-col space-y-8 m-8">
                     <CatchCopy />
                     <div className="flex flex-col space-y-4">
-                        <LinkButton
+                        <LinkButtonWithIcon
                             label="新しい交通ルールをチェック"
                             className="w-[300px]"
                         />
                         
-                        <LinkButton
+                        <LinkButtonWithIcon
                             label="ポート設置のご相談"
                             className="w-[300px]"
                         />

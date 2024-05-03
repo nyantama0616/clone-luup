@@ -1,5 +1,5 @@
 import LinkButtonPlain from "../../atoms/LinkButtonPlain/LinkButtonPlain";
-import LinkButton from "../../atoms/LinkButton/LinkButton";
+import LinkButtonWithIcon from "../../atoms/LinkButtonWithIcon/LinkButtonWithIcon";
 import ImageInfo from "@/commons/classes/ImageInfo";
 import MyImage from "../../atoms/MyImage/MyImage";
 import ImageInfos from "@/commons/enums/images.gen";
@@ -31,7 +31,7 @@ function News() {
                         <p className="text-center">期間で検索</p>
                     </div>
 
-                    <LinkButton label="News一覧へ" />
+                    <LinkButtonWithIcon label="News一覧へ" />
                 </div>
 
                 <div className="col-span-3">
