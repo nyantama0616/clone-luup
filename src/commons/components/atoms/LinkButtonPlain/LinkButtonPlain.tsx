@@ -1,17 +1,20 @@
 import React from "react";
-import LinkButtonProps from "@/commons/types/LinkButtonProps";
+import LinkButtonBase, { LinkButtonProps } from "../LinkButtonBase";
 
 interface LinkButtonPlainProps extends LinkButtonProps {
     textAlign?: "left" | "center" | "right";
+    label?: string;
 }
 
-function LinkButtonPlain({ label, to="#", onClick, width="200px", textAlign="center", className="" }: LinkButtonPlainProps) {
-    const _className = `rounded-md p-2 text-dark hover:bg-gray-100 cursor-pointer ${className}`;
+function LinkButtonPlain({ label, to="#", textAlign="center", className="" }: LinkButtonPlainProps) {
+    const _className = `flex rounded-md h-11 p-2 text-dark hover:bg-gray-100 ${className} border`;
 
     return (
-        <div className={_className} style={{width: width}}>
-            <p className={`text-base text-${textAlign}`}>{label}</p>
-        </div>
+        <LinkButtonBase to={to} className={_className}>
+            <div className={`font-normal font-['Inter'] text-${textAlign}`}>
+                {label}
+            </div>
+        </LinkButtonBase>
     )
 }
 

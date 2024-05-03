@@ -7,13 +7,9 @@ interface LinkButtonWithIconProps extends LinkButtonProps {
      * Button contents
      */
     label: string;
-
-    /**
-     * Optional click handler
-     */
-    onClick?: () => void;
 }
 
+//TODO: h-11消したい
 function LinkButtonWithIcon({ label, to, className }: LinkButtonWithIconProps) {
     const _className = `bg-white h-11 rounded-md border border-neutral-200 justify-between items-center gap-2.5 inline-flex text-dark hover:bg-dark hover:text-white ${className}`;
 

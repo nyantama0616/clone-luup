@@ -12,9 +12,8 @@ const meta = {
     },
     tags: ['autodocs'],
     argTypes: {
-        onClick: { action: 'clicked' },
+
     },
-    args: { onClick: fn() },
 } satisfies Meta<typeof LinkButtonPlain>;
 
 export default meta;
@@ -24,6 +23,13 @@ type Story = StoryObj<typeof meta>;
 export const News: Story = {
     args: {
         label: "News",
-        width: "100px",
+    },
+};
+
+export const All: Story = {
+    args: {
+        label: "All",
+        textAlign: "left",
+        className: "w-[100px]",
     },
 };
