@@ -7,7 +7,7 @@ import NavWindowCompanyInfo from "../../molecules/nav-windows/NavWindowCompanyIn
 
 function Header() {
     return (
-        <header>
+        <header className="w-full">
             <nav className="bg-white flex justify-end">
                 <ul className="flex p-2">
                     <li>

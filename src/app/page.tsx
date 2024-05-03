@@ -7,10 +7,12 @@ import Service from "@/commons/components/organisms/Service/Service";
 import News from "@/commons/components/organisms/News/News";
 import HelpAndRecruit from "@/commons/components/organisms/HelpAndRecruit/HelpAndRecruit";
 import PortEstablish from "@/commons/components/organisms/PortEstablish/PortEstablish";
+import AppDownload from "@/commons/components/organisms/DownloadApp/DownloadApp";
+import Contact from "@/commons/components/organisms/Contact/Contact";
 
 function HomePage() {
     return (
-        <div className="flex flex-col space-y-16">
+        <div className="flex flex-col space-y-16 items-center">
             <Header />
             <Overview />
             <Advertise />
@@ -19,7 +21,11 @@ function HomePage() {
             <Service />
             <News />
             <HelpAndRecruit />
-            <PortEstablish />
+            <div>
+                <PortEstablish />
+                <AppDownload />
+            </div>
+            <Contact />
         </div>
     )
 }

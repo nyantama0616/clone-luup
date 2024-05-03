@@ -20,6 +20,7 @@
 		AdSankeiOther: new ImageInfo("/images/ad/sankeiOther.webp", 400, 64),
 		AdTobu: new ImageInfo("/images/ad/tobu.webp", 400, 244),
 		AdToyokoinn: new ImageInfo("/images/ad/toyokoinn.webp", 400, 376),
+		DownloadApp: new ImageInfo("/images/downloadApp.webp", 1520, 968),
 		FirstView: new ImageInfo("/images/firstView.webp", 2804, 1822),
 		Logo: new ImageInfo("/images/logo.webp", 522, 226),
 		LuupRide: new ImageInfo("/images/luupRide.webp", 1120, 1280),
