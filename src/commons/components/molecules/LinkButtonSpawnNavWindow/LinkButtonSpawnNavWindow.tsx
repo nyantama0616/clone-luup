@@ -7,28 +7,28 @@ import "./LinkButtonSpawnNavWindow.css";
     微妙にHover時の挙動が違う
     1. ボタンから離れてもNavWindowが消えない
     2. マスクが表示されない
+    3. Windowが右にはみ出した場合に、隠れてしまう
 */
 
 interface LinkButtonSpawnNavWindowProps {
     label: string;
     navWindow: React.ReactElement;
 }
-
 function LinkButtonSpawnNavWindow({ label, navWindow }: LinkButtonSpawnNavWindowProps) {
     const { isHovered, handleMouseEnter, handleMouseLeave } = useLinkButtonNavWindow();
     const navWindowWithProps = React.cloneElement(navWindow, { className: "spawned" });
 
     return (
-        <>
-            <div
-                className="p-2 text-dark hover:bg-gray-200 hover:text-white cursor-pointer relative"
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-            >
+        <div
+            className="pb-2 relative"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+        >
+            <div className="p-2 text-dark hover:bg-gray-200 hover:text-white cursor-pointer">
                 <h3 className="text-center">{label}</h3>
                 {isHovered && navWindowWithProps}
             </div>
-        </>
+        </div>
     )
 }
 
