@@ -7,7 +7,7 @@ interface LinkButtonPlainProps extends LinkButtonProps {
 }
 
 function LinkButtonPlain({ label, to="#", textAlign="center", className="" }: LinkButtonPlainProps) {
-    const _className = `flex rounded-md h-11 p-2 text-dark hover:bg-gray-100 ${className} border`;
+    const _className = `flex rounded-md h-11 p-2 text-dark hover:bg-gray-100 ${className}`;
 
     return (
         <LinkButtonBase to={to} className={_className}>

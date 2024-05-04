@@ -9,6 +9,7 @@ import HelpAndRecruit from "@/commons/components/organisms/HelpAndRecruit/HelpAn
 import PortEstablish from "@/commons/components/organisms/PortEstablish/PortEstablish";
 import AppDownload from "@/commons/components/organisms/DownloadApp/DownloadApp";
 import Contact from "@/commons/components/organisms/Contact/Contact";
+import Footer from "@/commons/components/organisms/Footer/Footer";
 
 function HomePage() {
     return (
@@ -26,6 +27,7 @@ function HomePage() {
                 <AppDownload />
             </div>
             <Contact />
+            <Footer />
         </div>
     )
 }
