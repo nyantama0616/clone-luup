@@ -1,10 +1,16 @@
+"use client";
 import GhostText from "../../atoms/GhoastText/GhoastText";
 import ImageSlider from "../../molecules/ImageSlider/ImageSlider";
 import ImageInfos from "@/commons/enums/images.gen";
 import LinkButtonWithIcon from "../../atoms/LinkButtonWithIcon/LinkButtonWithIcon";
 import PortMap from "../../molecules/PortMap/PortMap";
+import { useEffect, useRef } from "react";
+import { useDesignContext, BackgroundStatus } from "@/commons/contexts/DesignContext";
+import "./ghost.css";
 
 function Port() {
+    const { sliderRef, textClassName, ghostTextClassName } = usePort();
+    
     const images = [
         ImageInfos.Port1,
         ImageInfos.Port2,
@@ -12,15 +18,15 @@ function Port() {
     ].map(info => info.changeHeight(360).plainObject);
 
     return (
-        <div className="w-full flex flex-col items-center space-y-16">
+        <div className={`w-full flex flex-col items-center space-y-16 ${textClassName}`} ref={sliderRef}>
             <div className="flex flex-col items-center space-y-8">
                 <div className="flex flex-col space-y-2 w-[1100px]">
-                    <GhostText text="Port" size={4} />
-                    <GhostText text="LUUPポート" size={1} />
+                    <h1 className={`text-8xl ${ghostTextClassName}`}>Port</h1>
+                    <p className="text-xl">LUUPポート</p>
                 </div>
             </div>
             
-            <ImageSlider imageInfos={images} className="w-full h-[360px]"/>
+            <ImageSlider imageInfos={images} className="w-full h-[360px]" />
 
             <div className="grid grid-cols-2 gap-2 w-[1100px]">
                 <div className="row-span-2">
@@ -40,7 +46,10 @@ function Port() {
                 </div>
 
                 <div className="h-[96px] flex items-center">
-                    <LinkButtonWithIcon label="ポート設置をご検討の方へ"/>
+                    <LinkButtonWithIcon
+                        label="ポート設置をご検討の方へ"
+                        className={textClassName}
+                    />
                 </div>
             </div>
 
@@ -75,6 +84,7 @@ function Port() {
                     <p>物件オーナー・管理者の方</p>
                     <LinkButtonWithIcon
                         label="ポート設置をご検討の方へ"
+                        className={textClassName}
                     />
                 </div>
 
@@ -82,11 +92,52 @@ function Port() {
                     <p>ユーザーの方</p>
                     <LinkButtonWithIcon
                         label="ポート設置リクエスト"
+                        className={textClassName}
                     />
                 </div>
             </div>
         </div>
     )
+}
+
+interface PortController {
+    sliderRef: React.RefObject<HTMLDivElement>;
+    textClassName: string;
+    ghostTextClassName: string;
+}
+
+function usePort(): PortController {
+    const sliderRef = useRef<HTMLDivElement>(null);
+    const { backgroundStatus, setBackgroundStatus } = useDesignContext();
+    const textClassName = backgroundStatus === BackgroundStatus.WHITE ? "transition-colors duration-1000" : "transition-colors duration-1000 text-white";
+    const ghostTextClassName = backgroundStatus === BackgroundStatus.WHITE ? "ghost-disappear" : "ghost-appear";
+
+    const handleScroll = () => {
+        const refYTop = sliderRef.current?.getBoundingClientRect().top || 0;
+        const refYBottom = sliderRef.current?.getBoundingClientRect().bottom || 0;
+
+        const thredhold = 100;
+
+
+        if (backgroundStatus !== BackgroundStatus.DARK && refYTop < thredhold && refYBottom > thredhold) {
+            setBackgroundStatus(BackgroundStatus.DARK);
+            console.log("dark!");
+        } else if (backgroundStatus !== BackgroundStatus.WHITE && refYTop >= thredhold || refYBottom <= thredhold) {
+            setBackgroundStatus(BackgroundStatus.WHITE);
+            console.log("white!");
+        }
+    };
+    
+    useEffect(() => {
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, [backgroundStatus]);
+
+    return {
+        sliderRef,
+        textClassName,
+        ghostTextClassName,
+    };
 }
 
 export default Port;

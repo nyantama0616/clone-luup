@@ -11,7 +11,7 @@ function Advertise() {
         ImageInfos.AdLumine,
         ImageInfos.AdMaruetsu,
         ImageInfos.AdMitsuifudosan,
-    ].map(info => info.changeHeight(50).plainObject);
+    ].map(info => info.changeHeight(40).plainObject);
 
     const secondAds = [
         ImageInfos.AdMoriTrust,
@@ -22,12 +22,12 @@ function Advertise() {
         ImageInfos.AdSankei,
         ImageInfos.AdTobu,
         ImageInfos.AdToyokoinn,
-    ].map(info => info.changeHeight(50).plainObject);
+    ].map(info => info.changeHeight(40).plainObject);
 
   return (
     <div className="flex flex-col space-y-8 w-full">
-        <ImageSlider imageInfos={firstAds} className="" itemWidth={400}/>
-        <ImageSlider imageInfos={secondAds} className="" itemWidth={400} right/>
+        <ImageSlider imageInfos={firstAds} className="" itemWidth={300}/>
+        <ImageSlider imageInfos={secondAds} className="" itemWidth={300} right/>
     </div>
   );
 }

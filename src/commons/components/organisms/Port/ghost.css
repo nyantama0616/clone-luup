@@ -1,0 +1,33 @@
+.ghost-appear {
+    animation: ghostAppear 1s ease-in-out forwards;
+    transform: translateY(10px);
+    opacity: 0;
+}
+
+.ghost-disappear {
+    animation: ghostDisappear 1s ease-in-out forwards;
+    transform: translateY(0);
+    opacity: 1;
+}
+
+@keyframes ghostAppear {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes ghostDisappear {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+}

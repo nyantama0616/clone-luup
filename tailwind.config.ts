@@ -24,6 +24,7 @@ const config: Config = {
       },
       black: "#000000",
       red: "#ff0000",
+      dark2: "#657178", //TODO: ちゃんとした名前考える
     },
   },
   plugins: [],
