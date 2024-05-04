@@ -6,6 +6,7 @@ import LinkButtonWithIcon from "../../atoms/LinkButtonWithIcon/LinkButtonWithIco
 import PortMap from "../../molecules/PortMap/PortMap";
 import { useEffect, useRef } from "react";
 import { useDesignContext, BackgroundStatus } from "@/commons/contexts/DesignContext";
+import { throttle } from 'lodash';
 import "./ghost.css";
 
 function Port() {
@@ -112,21 +113,19 @@ function usePort(): PortController {
     const textClassName = backgroundStatus === BackgroundStatus.WHITE ? "transition-colors duration-1000" : "transition-colors duration-1000 text-white";
     const ghostTextClassName = backgroundStatus === BackgroundStatus.WHITE ? "ghost-disappear" : "ghost-appear";
 
-    const handleScroll = () => {
+    const handleScroll = throttle(() => {
         const refYTop = sliderRef.current?.getBoundingClientRect().top || 0;
         const refYBottom = sliderRef.current?.getBoundingClientRect().bottom || 0;
 
-        const thredhold = 100;
+        const thredhold = 250;
 
 
         if (backgroundStatus !== BackgroundStatus.DARK && refYTop < thredhold && refYBottom > thredhold) {
             setBackgroundStatus(BackgroundStatus.DARK);
-            console.log("dark!");
         } else if (backgroundStatus !== BackgroundStatus.WHITE && refYTop >= thredhold || refYBottom <= thredhold) {
             setBackgroundStatus(BackgroundStatus.WHITE);
-            console.log("white!");
-        }
-    };
+        }        
+    }, 200);
     
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);
