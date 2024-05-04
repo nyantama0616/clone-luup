@@ -18,9 +18,9 @@ function Port() {
                     <GhostText text="Port" size={4} />
                     <GhostText text="LUUPポート" size={1} />
                 </div>
-                
-                <ImageSlider imageInfos={images} />
             </div>
+            
+            <ImageSlider imageInfos={images} className="w-full h-[360px]"/>
 
             <div className="grid grid-cols-2 gap-2 w-[1100px]">
                 <div className="row-span-2">

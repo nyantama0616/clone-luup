@@ -1,10 +1,10 @@
 .slide-left {
-    animation: slideLeft 26s linear infinite;
+    animation: slideLeft 28s linear infinite;
     transform: translateX(0%);
 }
 
 .slide-right {
-    animation: slideRight 26s linear infinite;
+    animation: slideRight 28s linear infinite;
     transform: translateX(-50%);
 }
 

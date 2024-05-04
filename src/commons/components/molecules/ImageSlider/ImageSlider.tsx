@@ -42,6 +42,7 @@ interface ImageSliderController {
 
 function useImageSlider(initialImageInfos: IImageInfo[]): ImageSliderController {
     // TODO: 効率化できるかも
+    //TODO: 幅が足りない場合は、3倍とかにしないといけないケースもある
     const imageInfos = [...initialImageInfos, ...initialImageInfos];
 
     return {
