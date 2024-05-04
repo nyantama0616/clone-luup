@@ -10,6 +10,7 @@ import PortEstablish from "@/commons/components/organisms/PortEstablish/PortEsta
 import AppDownload from "@/commons/components/organisms/DownloadApp/DownloadApp";
 import Contact from "@/commons/components/organisms/Contact/Contact";
 import Footer from "@/commons/components/organisms/Footer/Footer";
+import Licence from "@/commons/components/organisms/Licence/Licence";
 
 function HomePage() {
     return (
@@ -28,6 +29,7 @@ function HomePage() {
             </div>
             <Contact />
             <Footer />
+            <Licence />
         </div>
     )
 }
