@@ -19,9 +19,9 @@ type Story = StoryObj<typeof meta>;
 export const Advertisement: Story = {
     args: {
         imageInfos: [
-            ImageInfos.AdApa,
-            ImageInfos.AdFamilymart,
-            ImageInfos.AdJrHigashi,
+            ImageInfos.AdApa.changeHeight(80),
+            ImageInfos.AdFamilymart.changeHeight(80),
+            ImageInfos.AdJrHigashi.changeHeight(80),
         ]
     },
 };

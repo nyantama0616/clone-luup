@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import {IImageInfo} from "@/commons/classes/ImageInfo";
 import GeneralProps from "@/commons/types/GeneralProps";
 import MyImage from "../../atoms/MyImage/MyImage";
@@ -10,16 +9,18 @@ import "./ImageSlider.css";
 
 interface ImageSliderProps extends GeneralProps {
     imageInfos: IImageInfo[];
+    itemWidth?: number;
+    right?: boolean;
 }
 
-function ImageSlider({ imageInfos, width="220px", height="80px" }: ImageSliderProps) {
-    const _width = parseInt(width.replace("px", ""));
-    const _height = parseInt(height.replace("px", ""));
+function ImageSlider({ imageInfos, className="", itemWidth=600, right=false }: ImageSliderProps) {
     const controller = useImageSlider(imageInfos);
+    const slideClassName = right ? "slide-right" : "slide-left";
+    const _className = `h-[100px] flex items-center relative overflow-hidden ${className}`;
 
     const images = controller.imageInfos.map((imageInfo, index) => (
         // TODO: 綺麗に横に並べる
-        <div style={{width: _width}} key={index.toString()}>
+        <div className={`w-[${itemWidth}px] flex-shrink-0 flex justify-center`} key={index.toString()}>
             <MyImage
                 info={imageInfo}
             />
@@ -27,9 +28,10 @@ function ImageSlider({ imageInfos, width="220px", height="80px" }: ImageSliderPr
     ));
 
     return (
-        <div className="flex flex-nowrap items-center space-x-16 slide-left">
-        {/* <div className="flex flex-nowrap items-center space-x-16"> */}
-            {images}
+        <div className={_className}>
+            <div className={`flex ${slideClassName} absolute`}>
+                {images}
+            </div>
         </div>
     )
 }
@@ -39,21 +41,8 @@ interface ImageSliderController {
 }
 
 function useImageSlider(initialImageInfos: IImageInfo[]): ImageSliderController {
-    const [imageInfos, setImageInfos] = useState<IImageInfo[]>(initialImageInfos);
-
-    function slide() {
-        setImageInfos(prev => {
-            const newImageInfos = [...prev];
-            const first = newImageInfos.shift();
-            newImageInfos.push(first!);
-            return newImageInfos;
-        });
-    }
-
-    useEffect(() => {
-        const interval = setInterval(slide, 3000);
-        return () => clearInterval(interval);
-    }, []);
+    // TODO: 効率化できるかも
+    const imageInfos = [...initialImageInfos, ...initialImageInfos];
 
     return {
         imageInfos,
