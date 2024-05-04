@@ -12,7 +12,7 @@ function Advertise() {
         ImageInfos.AdLumine,
         ImageInfos.AdMaruetsu,
         ImageInfos.AdMitsuifudosan,
-    ];
+    ].map(info => info.changeHeight(80).plainObject);
 
     const secondAds = [
         ImageInfos.AdMoriTrust,
@@ -23,7 +23,7 @@ function Advertise() {
         ImageInfos.AdSankei,
         ImageInfos.AdTobu,
         ImageInfos.AdToyokoinn,
-    ];
+    ].map(info => info.changeHeight(80).plainObject);
 
   return (
     <div className="flex flex-col space-y-8">

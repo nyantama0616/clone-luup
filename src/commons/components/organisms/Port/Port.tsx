@@ -9,7 +9,7 @@ function Port() {
         ImageInfos.Port1,
         ImageInfos.Port2,
         ImageInfos.Port3,
-    ];
+    ].map(info => info.changeHeight(360).plainObject);
 
     return (
         <div className="w-full flex flex-col items-center space-y-16">
@@ -19,7 +19,7 @@ function Port() {
                     <GhostText text="LUUPポート" size={1} />
                 </div>
                 
-                <ImageSlider imageInfos={images} width="500px" height="360px" />
+                <ImageSlider imageInfos={images} />
             </div>
 
             <div className="grid grid-cols-2 gap-2 w-[1100px]">
@@ -40,7 +40,7 @@ function Port() {
                 </div>
 
                 <div className="h-[96px] flex items-center">
-                    <LinkButtonWithIcon label="ポート設置をご検討の方へ" width="300px"/>
+                    <LinkButtonWithIcon label="ポート設置をご検討の方へ"/>
                 </div>
             </div>
 
@@ -75,7 +75,6 @@ function Port() {
                     <p>物件オーナー・管理者の方</p>
                     <LinkButtonWithIcon
                         label="ポート設置をご検討の方へ"
-                        width="300px"
                     />
                 </div>
 
@@ -83,7 +82,6 @@ function Port() {
                     <p>ユーザーの方</p>
                     <LinkButtonWithIcon
                         label="ポート設置リクエスト"
-                        width="300px"
                     />
                 </div>
             </div>

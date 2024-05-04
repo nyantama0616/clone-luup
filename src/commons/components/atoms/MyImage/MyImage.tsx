@@ -1,9 +1,9 @@
 import Image from "next/image";
-import ImageInfo from "@/commons/classes/ImageInfo";
+import {IImageInfo} from "@/commons/classes/ImageInfo";
 import GeneralProps from "@/commons/types/GeneralProps";
 
 interface MyImageProps extends GeneralProps {
-    info: ImageInfo;
+    info: IImageInfo;
 }
 
 function MyImage({ info, className="" }: MyImageProps) {

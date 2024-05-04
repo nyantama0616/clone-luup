@@ -1,3 +1,9 @@
+export interface IImageInfo {
+    path: string;
+    width: number;
+    height: number;
+}
+
 class ImageInfo {
     path: string;
     width: number;
@@ -21,6 +27,14 @@ class ImageInfo {
 
     get aspectRatio(): number {
         return this.width / this.height;
+    }
+
+    get plainObject(): IImageInfo {
+        return {
+            path: this.path,
+            width: this.width,
+            height: this.height
+        }
     }
 }
 
