@@ -120,9 +120,9 @@ function usePort(): PortController {
         const thredhold = 250;
 
 
-        if (backgroundStatus !== BackgroundStatus.DARK && refYTop < thredhold && refYBottom > thredhold) {
+        if (refYTop < thredhold && refYBottom > thredhold) {
             setBackgroundStatus(BackgroundStatus.DARK);
-        } else if (backgroundStatus !== BackgroundStatus.WHITE && refYTop >= thredhold || refYBottom <= thredhold) {
+        } else if (refYTop >= thredhold || refYBottom <= thredhold) {
             setBackgroundStatus(BackgroundStatus.WHITE);
         }        
     }, 200);

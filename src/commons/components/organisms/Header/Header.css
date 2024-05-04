@@ -1,0 +1,27 @@
+.appear {
+    animation: appear 0.5s ease-in-out forwards;
+    top: -100px;
+}
+
+.disappear {
+    animation: disappear 0.5s ease-in-out forwards;
+    top: 0;
+}
+
+@keyframes appear {
+    0% {
+        top: -100px;
+    }
+    100% {
+        top: 0;
+    }
+}
+
+@keyframes disappear {
+    0% {
+        top: 0;
+    }
+    100% {
+        top: -100px;
+    }
+}

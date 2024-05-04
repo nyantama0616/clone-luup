@@ -1,7 +1,8 @@
 "use client";
+import { throttle } from 'lodash';
 // TODO: ちゃんとした名前考える
 
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 
 export enum HeaderStatus {
     CLOSED,
@@ -51,22 +52,45 @@ export function DesignContextProvider({ children }: { children: React.ReactNode 
 
 function useDesignContextController(): DesignContextType {
     const [state, setState] = useState<DesignContextState>({
-        headerStatus: HeaderStatus.CLOSED,
+        headerStatus: HeaderStatus.FIRST,
         showMask: false,
         backgroundStatus: BackgroundStatus.WHITE,
     });
 
-    function setHeaderStatus(status: HeaderStatus) {
+    const setHeaderStatus = (status: HeaderStatus) => {
+        if (status === state.headerStatus) return;
         setState({ ...state, headerStatus: status });
-    }
+    };
 
     function setShowMask(show: boolean) {
+        if (show === state.showMask) return;
         setState({ ...state, showMask: show });
     }
 
     function setBackgroundStatus(status: BackgroundStatus) {
+        if (status === state.backgroundStatus) return;
         setState({ ...state, backgroundStatus: status });
     }
+
+    const handleScroll = throttle(() => {
+        const thredhold = 100;
+        const windowY = window.scrollY;
+        if (windowY > thredhold) {
+            setHeaderStatus(HeaderStatus.CLOSED);
+            console.log("CLOSED");
+            
+        } else if (windowY <= thredhold) {
+            setHeaderStatus(HeaderStatus.FIRST);
+            console.log("FIRST");
+        }
+        console.log(windowY);
+        
+    }, 200);
+
+    useEffect(() => {
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, [state]);
 
     return {
         headerStatus: state.headerStatus,

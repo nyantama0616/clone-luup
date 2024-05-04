@@ -21,7 +21,7 @@ function HomePage() {
     const bgColor = backgroundStatus === BackgroundStatus.WHITE ? "bg-white" : "bg-dark2";
 
     return (
-        <div className={`flex flex-col space-y-16 items-center transition-colors duration-1000 ${bgColor}`}>
+        <div className={`relative flex flex-col space-y-16 items-center transition-colors duration-1000 ${bgColor}`}>
             <Header />
             <Overview />
             <Advertise />
