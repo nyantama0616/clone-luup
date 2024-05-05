@@ -23,7 +23,7 @@ function HomePage() {
     const mask = showMask ? "mask" : "";
 
     return (
-        <div className={`relative flex flex-col space-y-16 items-center transition-colors duration-1000 ${bgColor} ${mask}`}>
+        <div className={`relative flex flex-col space-y-28 items-center transition-colors duration-1000 ${bgColor} ${mask}`}>
             <Header />
             <Overview />
             <Advertise />

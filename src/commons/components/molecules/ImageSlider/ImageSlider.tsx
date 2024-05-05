@@ -5,7 +5,7 @@ import GeneralProps from "@/commons/types/GeneralProps";
 import MyImage from "../../atoms/MyImage/MyImage";
 import "./ImageSlider.css";
 
-// TODO: 動かす
+// TODO: listのkeyの付け方を考える
 
 interface ImageSliderProps extends GeneralProps {
     imageInfos: IImageInfo[];
@@ -18,9 +18,9 @@ function ImageSlider({ imageInfos, className="", itemWidth=600, right=false }: I
     const slideClassName = right ? "slide-right" : "slide-left";
     const _className = `h-[100px] flex items-center relative overflow-hidden ${className}`;
 
-    const images = controller.imageInfos.map((imageInfo, index) => (
+    const images = controller.imageInfos.map((imageInfo) => (
         // TODO: 綺麗に横に並べる
-        <div className={`w-[${itemWidth}px] flex-shrink-0 flex justify-center`} key={index.toString()}>
+        <div className={`w-[${itemWidth}px] flex-shrink-0 flex justify-center`} key={Math.random().toString()}>
             <MyImage
                 info={imageInfo}
             />
