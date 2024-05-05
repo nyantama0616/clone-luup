@@ -1,34 +1,44 @@
 "use client";
 import React, { useState } from "react";
+import LinkButtonBase, {LinkButtonProps} from "../../atoms/LinkButtonBase";
 import "./LinkButtonSpawnNavWindow.css";
 
 /*
     TODO: 
     微妙にHover時の挙動が違う
-    1. ボタンから離れてもNavWindowが消えない
-    2. マスクが表示されない
     3. Windowが右にはみ出した場合に、隠れてしまう
 */
 
-interface LinkButtonSpawnNavWindowProps {
+interface LinkButtonSpawnNavWindowProps extends LinkButtonProps {
     label: string;
     navWindow: React.ReactElement;
 }
-function LinkButtonSpawnNavWindow({ label, navWindow }: LinkButtonSpawnNavWindowProps) {
+function LinkButtonSpawnNavWindow({ label, navWindow, className, onMouseEnter, onMouseLeave }: LinkButtonSpawnNavWindowProps) {
     const { isHovered, handleMouseEnter, handleMouseLeave } = useLinkButtonNavWindow();
     const navWindowWithProps = React.cloneElement(navWindow, { className: "spawned" });
+    const _className = `pb-2 relative ${className}`;
+
+    function _onMouseEnter() {
+        handleMouseEnter();
+        if (onMouseEnter) onMouseEnter();
+    }
+
+    function _onMouseLeave() {
+        handleMouseLeave();
+        if (onMouseLeave) onMouseLeave();
+    }
 
     return (
-        <div
-            className="pb-2 relative"
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
+        <LinkButtonBase
+            className={_className}
+            onMouseEnter={_onMouseEnter}
+            onMouseLeave={_onMouseLeave}
         >
-            <div className="p-2 text-dark hover:bg-gray-200 hover:text-white cursor-pointer">
+            <div className="p-2 text-dark hover:text-white">
                 <h3 className="text-center">{label}</h3>
                 {isHovered && navWindowWithProps}
             </div>
-        </div>
+        </LinkButtonBase>
     )
 }
 
@@ -47,8 +57,6 @@ function useLinkButtonNavWindow(): LinkButtonSpawnNavWindowController {
 
     function handleMouseLeave() {
         setIsHovered(false);
-        console.log("handleMouseLeave");
-        
     }
 
     return {

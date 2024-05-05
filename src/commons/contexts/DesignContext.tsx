@@ -19,6 +19,7 @@ export type DesignContextType = {
     headerStatus: HeaderStatus;
     showMask: boolean;
     setShowMask: (show: boolean) => void;
+    toggleShowMask: () => void;
     backgroundStatus: BackgroundStatus;
     headerScrollPointFirstRef: React.RefObject<HTMLDivElement> | null;
     headerScrollPointSecondRef: React.RefObject<HTMLDivElement> | null;
@@ -30,6 +31,7 @@ const initialContext: DesignContextType = {
     headerStatus: HeaderStatus.CLOSED,
     showMask: false,
     setShowMask: () => { },
+    toggleShowMask: () => { },
     backgroundStatus: BackgroundStatus.WHITE,
     headerScrollPointFirstRef: null,
     headerScrollPointSecondRef: null,
@@ -71,6 +73,12 @@ function useDesignContextController(): DesignContextType {
         setState({ ...state, showMask: show });
     }
 
+    function toggleShowMask() {
+        setState(prev => {
+            return { ...prev, showMask: !prev.showMask };
+        });
+    };
+
     function setHeaderStatus(status: HeaderStatus) {
         if (status === state.headerStatus) return;
         setState({ ...state, headerStatus: status });
@@ -103,6 +111,7 @@ function useDesignContextController(): DesignContextType {
         headerStatus: state.headerStatus,
         showMask: state.showMask,
         setShowMask,
+        toggleShowMask,
         backgroundStatus: state.backgroundStatus,
         headerScrollPointFirstRef,
         headerScrollPointSecondRef,

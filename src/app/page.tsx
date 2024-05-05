@@ -14,14 +14,16 @@ import Contact from "@/commons/components/organisms/Contact/Contact";
 import Footer from "@/commons/components/organisms/Footer/Footer";
 import Licence from "@/commons/components/organisms/Licence/Licence";
 import { useDesignContext, BackgroundStatus } from "@/commons/contexts/DesignContext";
+import "./page.css";
 
 function HomePage() {
-    const { backgroundStatus } = useDesignContext();
+    const { backgroundStatus, showMask } = useDesignContext();
     
     const bgColor = backgroundStatus === BackgroundStatus.WHITE ? "bg-white" : "bg-dark2";
+    const mask = showMask ? "mask" : "";
 
     return (
-        <div className={`relative flex flex-col space-y-16 items-center transition-colors duration-1000 ${bgColor}`}>
+        <div className={`relative flex flex-col space-y-16 items-center transition-colors duration-1000 ${bgColor} ${mask}`}>
             <Header />
             <Overview />
             <Advertise />

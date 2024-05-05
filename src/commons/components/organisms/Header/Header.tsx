@@ -14,29 +14,29 @@ import "./Header.css";
 function Header() {
     const { headerStatus } = useDesignContext();
     const headerClassName = headerStatus === HeaderStatus.CLOSED ? "disappear" : "appear";
-    
+
     return (
         <header className={`w-full fixed top-0 flex justify-between ${headerClassName}`}>
             <div className="w-20 h-16 relative ml-4">
                 {headerStatus == HeaderStatus.SECOND && <LuupIcon className="w-full h-full fill-black" />}
             </div>
 
-            <nav className="flex justify-end items-center">
+            <nav className="flex items-center">
                 <ul className="flex p-2">
                     <li>
-                        <LinkButtonSpawnNavWindow
+                        <LinkButtonSpawnNavWindowContainer
                             label="Why LUUP"
                             navWindow={<NavWindowWhyLuup />}
                         />
                     </li>
                     <li>
-                        <LinkButtonSpawnNavWindow
+                        <LinkButtonSpawnNavWindowContainer
                             label="サービス"
                             navWindow={<NavWindowService />}
                         />
                     </li>
                     <li>
-                        <LinkButtonSpawnNavWindow
+                        <LinkButtonSpawnNavWindowContainer
                             label="ポートマップ"
                             navWindow={<NavWindowPortMap />}
                         />
@@ -47,7 +47,7 @@ function Header() {
                         />
                     </li>
                     <li>
-                        <LinkButtonSpawnNavWindow
+                        <LinkButtonSpawnNavWindowContainer
                             label="企業情報"
                             navWindow={<NavWindowCompanyInfo />}
                         />
@@ -63,6 +63,24 @@ function Header() {
             </nav>
         </header>
     )
+}
+
+interface LinkButtonSpawnNavWindowContainerProps {
+    label: string;
+    navWindow: React.ReactElement;
+}
+
+function LinkButtonSpawnNavWindowContainer({ label, navWindow }: LinkButtonSpawnNavWindowContainerProps) {
+    const { toggleShowMask } = useDesignContext();
+
+    return (
+        <LinkButtonSpawnNavWindow
+            label={label}
+            navWindow={navWindow}
+            onMouseEnter={toggleShowMask}
+            onMouseLeave={toggleShowMask}
+        />
+    );
 }
 
 export default Header;
