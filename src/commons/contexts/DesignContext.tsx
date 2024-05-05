@@ -69,19 +69,39 @@ function useDesignContextController(): DesignContextType {
     const bgScrollPointSecondRef = useRef<HTMLDivElement>(null);
 
     function setShowMask(show: boolean) {
-        if (show === state.showMask) return;
-        setState({ ...state, showMask: show });
+        setState(prev => {
+            return {
+                ...prev,
+                showMask: show,
+            }
+        });
     }
 
     function toggleShowMask() {
         setState(prev => {
-            return { ...prev, showMask: !prev.showMask };
+            return {
+                ...prev,
+                showMask: !prev.showMask
+            };
         });
     };
 
     function setHeaderStatus(status: HeaderStatus) {
-        if (status === state.headerStatus) return;
-        setState({ ...state, headerStatus: status });
+        setState(prev => {
+            return {
+                ...prev,
+                headerStatus: status,
+            }
+        });
+    }
+
+    function setBackgroundStatus(status: BackgroundStatus) {
+        setState(prev => {
+            return {
+                ...prev,
+                backgroundStatus: status,
+            }
+        });
     }
 
     function handleHeaderScroll() {
@@ -98,8 +118,22 @@ function useDesignContextController(): DesignContextType {
         }
     }
 
+    function handleBackgroundScroll() {
+        const threshold = 450;
+
+        const refYTop = bgScrollPointFirstRef.current?.getBoundingClientRect().top || 0;
+        const refYBottom = bgScrollPointSecondRef.current?.getBoundingClientRect().bottom || 0;
+
+        if (refYTop < threshold && refYBottom > threshold) {
+            setBackgroundStatus(BackgroundStatus.DARK);
+        } else if (refYTop >= threshold || refYBottom <= threshold) {
+            setBackgroundStatus(BackgroundStatus.WHITE);
+        }
+    }
+
     const handleScroll = throttle(() => {
         handleHeaderScroll();
+        handleBackgroundScroll();
     }, 200);
 
     useEffect(() => {

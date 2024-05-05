@@ -1,13 +1,15 @@
 import "./GhostText.css";
+import GeneralProps2 from "@/commons/types/GeneralProps2";
 
-interface GhostTextProps {
+interface GhostTextProps extends GeneralProps2 {
     text: string;
-    size?: number;
+    appear?: boolean;
 }
 
-function GhostText({ text, size=4 }: GhostTextProps) {
-    const fadeIn = 'fade-in';
-    const _className = `text-dark text-${size}xl font-bold ${fadeIn}`;
+function GhostText({ text, className, appear = false }: GhostTextProps) {
+    const ghostTextClassName = appear ? "ghost-appear" : "ghost-disappear";
+    const _className = `${ghostTextClassName} ${className}`;
+    
     return (
         <h1 className={_className}>
             {text}
