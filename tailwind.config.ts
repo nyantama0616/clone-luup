@@ -29,6 +29,7 @@ const config: Config = {
       red: "#ff0000",
       dark2: "#657178", //TODO: ちゃんとした名前考える
       mask: "#6c6c6c",
+      cream: "#f7f7f7",
     },
   },
   plugins: [],

@@ -19,7 +19,7 @@ import "./page.css";
 function HomePage() {
     const { backgroundStatus, showMask } = useDesignContext();
     
-    const bgColor = backgroundStatus === BackgroundStatus.WHITE ? "bg-white" : "bg-dark2";
+    const bgColor = backgroundStatus === BackgroundStatus.WHITE ? "bg-white" : backgroundStatus === BackgroundStatus.CREAM ? "bg-cream" : "bg-dark2";
     const mask = showMask ? "mask" : "";
 
     return (

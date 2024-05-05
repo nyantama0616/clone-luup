@@ -22,13 +22,13 @@ interface ButtonProps {
 }
 
 function Button({ title, describe, onClick, className = "" }: ButtonProps) {
-    const _className = `flex flex-col justify-center items-center space-y-4 rounded-md bg-white w-[555px] h-[252px] ${className}`;
+    const _className = `flex flex-col justify-center items-center space-y-4 rounded-md bg-white w-[555px] h-[252px] hover:text-primary-200 ${className}`;
     
     return (
-        <div className={_className}>
+        <a className={_className} href="#">
             <h2 className="text-6xl">{title}</h2>
             <p>{describe}</p>
-        </div>
+        </a>
     );
 }
 

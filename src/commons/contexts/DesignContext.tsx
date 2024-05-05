@@ -13,6 +13,7 @@ export enum HeaderStatus {
 export enum BackgroundStatus {
     WHITE,
     DARK,
+    CREAM,
 }
 
 export type DesignContextType = {
@@ -77,6 +78,7 @@ function useDesignContextController(): DesignContextType {
 
     function setShowMask(show: boolean) {
         setState(prev => {
+            if (prev.showMask === show) return prev; // Column: これがないと無意味に再レンダリングされてしまう
             return {
                 ...prev,
                 showMask: show,
@@ -95,6 +97,8 @@ function useDesignContextController(): DesignContextType {
 
     function setHeaderStatus(status: HeaderStatus) {
         setState(prev => {
+            if (prev.headerStatus === status) return prev;
+            
             return {
                 ...prev,
                 headerStatus: status,
@@ -104,6 +108,8 @@ function useDesignContextController(): DesignContextType {
 
     function setBackgroundStatus(status: BackgroundStatus) {
         setState(prev => {
+            if (prev.backgroundStatus === status) return prev;
+
             return {
                 ...prev,
                 backgroundStatus: status,
@@ -113,6 +119,8 @@ function useDesignContextController(): DesignContextType {
 
     function setShowWhyLuup(show: boolean) {
         setState(prev => {
+            if (prev.showWhyLuup === show) return prev;
+            
             return {
                 ...prev,
                 showWhyLuup: show,
@@ -154,8 +162,10 @@ function useDesignContextController(): DesignContextType {
 
         if (refYTop < threshold && refYBottom > threshold) {
             setBackgroundStatus(BackgroundStatus.DARK);
-        } else if (refYTop >= threshold || refYBottom <= threshold) {
+        } else if (refYTop >= threshold) {
             setBackgroundStatus(BackgroundStatus.WHITE);
+        } else {
+            setBackgroundStatus(BackgroundStatus.CREAM);
         }
     }
 
