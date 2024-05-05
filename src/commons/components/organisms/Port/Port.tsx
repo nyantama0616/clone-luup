@@ -6,6 +6,7 @@ import LinkButtonWithIcon from "../../atoms/LinkButtonWithIcon/LinkButtonWithIco
 import PortMap from "../../molecules/PortMap/PortMap";
 import { useDesignContext, BackgroundStatus } from "@/commons/contexts/DesignContext";
 import "@/commons/styles/ghost.css";
+import LuupBorder from "../../atoms/LuupBorder/LuupBorder";
 
 function Port() {
     const { backgroundStatus, bgScrollPointFirstRef, bgScrollPointSecondRef } = useDesignContext();
@@ -21,6 +22,14 @@ function Port() {
     return (
         <div className={`w-full flex flex-col items-center space-y-28 ${textClassName}`} ref={bgScrollPointFirstRef}>
             <div className="flex flex-col items-center space-y-8">
+                
+                {/* TODO: 上の要素との距離を取るため。他の方法を考える */}
+                <div className="h-[150px]"></div>
+
+                <div className="relative">
+                    <LuupBorder />
+                </div>
+
                 <div className="flex flex-col space-y-2 w-[1100px]">
                     <GhostText text="Port" className="text-8xl" appear={backgroundStatus === BackgroundStatus.DARK} />
                     <p className="text-xl">LUUPポート</p>
@@ -101,43 +110,5 @@ function Port() {
         </div>
     )
 }
-
-// interface PortController {
-//     sliderRef: React.RefObject<HTMLDivElement>;
-//     textClassName: string;
-//     ghostTextClassName: string;
-// }
-
-// function usePort(): PortController {
-//     const sliderRef = useRef<HTMLDivElement>(null);
-//     const { backgroundStatus } = useDesignContext();
-//     const textClassName = backgroundStatus === BackgroundStatus.WHITE ? "transition-colors duration-1000" : "transition-colors duration-1000 text-white";
-//     const ghostTextClassName = backgroundStatus === BackgroundStatus.WHITE ? "ghost-disappear" : "ghost-appear";
-
-//     const handleScroll = throttle(() => {
-//         const refYTop = sliderRef.current?.getBoundingClientRect().top || 0;
-//         const refYBottom = sliderRef.current?.getBoundingClientRect().bottom || 0;
-
-//         const thredhold = 250;
-
-
-//         if (refYTop < thredhold && refYBottom > thredhold) {
-//             setBackgroundStatus(BackgroundStatus.DARK);
-//         } else if (refYTop >= thredhold || refYBottom <= thredhold) {
-//             setBackgroundStatus(BackgroundStatus.WHITE);
-//         }        
-//     }, 200);
-    
-//     useEffect(() => {
-//         window.addEventListener("scroll", handleScroll);
-//         return () => window.removeEventListener("scroll", handleScroll);
-//     }, [backgroundStatus]);
-
-//     return {
-//         sliderRef,
-//         textClassName,
-//         ghostTextClassName,
-//     };
-// }
 
 export default Port;

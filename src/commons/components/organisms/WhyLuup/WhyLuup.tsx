@@ -5,8 +5,6 @@ import ImageInfos from "@/commons/enums/images.gen";
 import LinkButtonWithIcon from "../../atoms/LinkButtonWithIcon/LinkButtonWithIcon";
 import { useDesignContext } from "@/commons/contexts/DesignContext";
 
-import "./WhyLuup.css";
-
 function WhyLuup() {
     const { showWhyLuup, whyLuupRef } = useDesignContext();
 
