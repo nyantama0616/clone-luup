@@ -9,22 +9,25 @@ function Overview() {
 
     return (
         <div className="overview flex flex-col space-y-8 items-center">
-            <div className="flex space-x-4" ref={headerScrollPointSecondRef}>
-                <div className="flex flex-col space-y-8 m-8">
+            <div className="flex" ref={headerScrollPointSecondRef}>
+                <div className="w-[380px] flex flex-col justify-between pt-10 pl-10 pb-10 pr-8">
                     <CatchCopy />
                     <div className="flex flex-col space-y-4">
                         <LinkButtonWithIcon
                             label="新しい交通ルールをチェック"
-                            className="w-[300px]"
+                            className="h-[60px]"
                         />
                         
                         <LinkButtonWithIcon
                             label="ポート設置のご相談"
-                            className="w-[300px]"
+                            className="h-[60px]"
                         />
                     </div>
                 </div>
-                <MyImage info={ImageInfos.FirstView} />
+
+                <div className="w-[1600px] overflow-hidden relative">
+                    <MyImage info={ImageInfos.FirstView} className="first-view"/>
+                </div>
             </div>
 
             <div className="grid grid-cols-3 gap-4" style={{width: 1100}}>
