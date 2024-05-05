@@ -80,10 +80,10 @@ function Footer() {
                 </div>
             </div>
             
-            <div className="h-full flex flex-col items-center">
+            <div className="h-full flex flex-col items-center sticky top-0">
                 <a className="w-[50px] h-[50px] border rounded-full mt-2 flex justify-center items-center cursor-pointer" href="#">
                     <div className="w-6 h-6 relative">
-                        <Image src="/icons/arrow-top.svg" alt="Arrow right" layout="fill" />
+                        <Image src="/icons/arrow-top.svg" alt="Arrow top" layout="fill" />
                     </div>
                 </a>
                 <p className="rotate-90 whitespace-nowrap translate-y-10">Page Top</p>
