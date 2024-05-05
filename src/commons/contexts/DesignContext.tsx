@@ -2,7 +2,7 @@
 import { throttle } from 'lodash';
 // TODO: ちゃんとした名前考える
 
-import React, { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
+import React, { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
 
 export enum HeaderStatus {
     CLOSED,
@@ -17,20 +17,24 @@ export enum BackgroundStatus {
 
 export type DesignContextType = {
     headerStatus: HeaderStatus;
-    setHeaderStatus: (status: HeaderStatus) => void;
     showMask: boolean;
     setShowMask: (show: boolean) => void;
     backgroundStatus: BackgroundStatus;
-    setBackgroundStatus: (status: BackgroundStatus) => void;
+    headerScrollPointFirstRef: React.RefObject<HTMLDivElement> | null;
+    headerScrollPointSecondRef: React.RefObject<HTMLDivElement> | null;
+    bgScrollPointFirstRef: React.RefObject<HTMLDivElement> | null;
+    bgScrollPointSecondRef: React.RefObject<HTMLDivElement> | null;
 };
 
 const initialContext: DesignContextType = {
     headerStatus: HeaderStatus.CLOSED,
-    setHeaderStatus: () => {},
     showMask: false,
     setShowMask: () => { },
     backgroundStatus: BackgroundStatus.WHITE,
-    setBackgroundStatus: () => {},
+    headerScrollPointFirstRef: null,
+    headerScrollPointSecondRef: null,
+    bgScrollPointFirstRef: null,
+    bgScrollPointSecondRef: null,
 };
 
 const DesignContext = createContext<DesignContextType>(initialContext);
@@ -57,34 +61,37 @@ function useDesignContextController(): DesignContextType {
         backgroundStatus: BackgroundStatus.WHITE,
     });
 
-    const setHeaderStatus = (status: HeaderStatus) => {
-        if (status === state.headerStatus) return;
-        setState({ ...state, headerStatus: status });
-    };
+    const headerScrollPointFirstRef = useRef<HTMLDivElement>(null);
+    const headerScrollPointSecondRef = useRef<HTMLDivElement>(null);
+    const bgScrollPointFirstRef = useRef<HTMLDivElement>(null);
+    const bgScrollPointSecondRef = useRef<HTMLDivElement>(null);
 
     function setShowMask(show: boolean) {
         if (show === state.showMask) return;
         setState({ ...state, showMask: show });
     }
 
-    function setBackgroundStatus(status: BackgroundStatus) {
-        if (status === state.backgroundStatus) return;
-        setState({ ...state, backgroundStatus: status });
+    function setHeaderStatus(status: HeaderStatus) {
+        if (status === state.headerStatus) return;
+        setState({ ...state, headerStatus: status });
+    }
+
+    function handleHeaderScroll() {
+        const threshold = 100;
+        const windowY = window.scrollY;
+        const headerSecondY = headerScrollPointSecondRef.current?.getBoundingClientRect().bottom || 0;
+
+        if (windowY < threshold) {
+            setHeaderStatus(HeaderStatus.FIRST);
+        } else if (windowY >= threshold && headerSecondY > threshold) {
+            setHeaderStatus(HeaderStatus.CLOSED);
+        } else if (headerSecondY < threshold) {
+            setHeaderStatus(HeaderStatus.SECOND);
+        }
     }
 
     const handleScroll = throttle(() => {
-        const thredhold = 100;
-        const windowY = window.scrollY;
-        if (windowY > thredhold) {
-            setHeaderStatus(HeaderStatus.CLOSED);
-            console.log("CLOSED");
-            
-        } else if (windowY <= thredhold) {
-            setHeaderStatus(HeaderStatus.FIRST);
-            console.log("FIRST");
-        }
-        console.log(windowY);
-        
+        handleHeaderScroll();
     }, 200);
 
     useEffect(() => {
@@ -94,10 +101,12 @@ function useDesignContextController(): DesignContextType {
 
     return {
         headerStatus: state.headerStatus,
-        setHeaderStatus,
         showMask: state.showMask,
         setShowMask,
         backgroundStatus: state.backgroundStatus,
-        setBackgroundStatus,
+        headerScrollPointFirstRef,
+        headerScrollPointSecondRef,
+        bgScrollPointFirstRef,
+        bgScrollPointSecondRef,
     };
 }

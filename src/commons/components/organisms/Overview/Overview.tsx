@@ -2,11 +2,14 @@ import CatchCopy from "../../molecules/CatchCopy/CatchCopy";
 import MyImage from "../../atoms/MyImage/MyImage";
 import ImageInfos from "@/commons/enums/images.gen";
 import LinkButtonWithIcon from "../../atoms/LinkButtonWithIcon/LinkButtonWithIcon";
+import { useDesignContext } from "@/commons/contexts/DesignContext";
 
 function Overview() {
+    const { headerScrollPointSecondRef } = useDesignContext();
+
     return (
         <div className="overview flex flex-col space-y-8 items-center">
-            <div className="flex space-x-4">
+            <div className="flex space-x-4" ref={headerScrollPointSecondRef}>
                 <div className="flex flex-col space-y-8 m-8">
                     <CatchCopy />
                     <div className="flex flex-col space-y-4">

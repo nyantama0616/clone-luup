@@ -1,8 +1,8 @@
 import Image from 'next/image';
-import LuupIcon from "./icons/luup.svg"; // TODO: public/に置きたい
-import TwitterIcon from "./icons/twitter.svg";
-import InstagramIcon from "./icons/instagram.svg";
-import NoteIcon from "./icons/note.svg";
+import LuupIcon from "@/commons/assets/icons/luup.svg"; // TODO: public/に置きたい
+import TwitterIcon from "@/commons/assets/icons/twitter.svg"; // TODO: public/に置きたい
+import InstagramIcon from "@/commons/assets/icons/instagram.svg";
+import NoteIcon from "@/commons/assets/icons/note.svg";
 import LinkButtonPlain from '../../atoms/LinkButtonPlain/LinkButtonPlain';
 import LinkButtonWithIcon from '../../atoms/LinkButtonWithIcon/LinkButtonWithIcon';
 

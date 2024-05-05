@@ -4,13 +4,13 @@ import ImageSlider from "../../molecules/ImageSlider/ImageSlider";
 import ImageInfos from "@/commons/enums/images.gen";
 import LinkButtonWithIcon from "../../atoms/LinkButtonWithIcon/LinkButtonWithIcon";
 import PortMap from "../../molecules/PortMap/PortMap";
-import { useEffect, useRef } from "react";
 import { useDesignContext, BackgroundStatus } from "@/commons/contexts/DesignContext";
-import { throttle } from 'lodash';
 import "./ghost.css";
 
 function Port() {
-    const { sliderRef, textClassName, ghostTextClassName } = usePort();
+    const { backgroundStatus, bgScrollPointFirstRef, bgScrollPointSecondRef } = useDesignContext();
+    const textClassName = backgroundStatus === BackgroundStatus.WHITE ? "transition-colors duration-1000" : "transition-colors duration-1000 text-white";
+    const ghostTextClassName = backgroundStatus === BackgroundStatus.WHITE ? "ghost-disappear" : "ghost-appear";;
     
     const images = [
         ImageInfos.Port1,
@@ -19,7 +19,7 @@ function Port() {
     ].map(info => info.changeHeight(360).plainObject);
 
     return (
-        <div className={`w-full flex flex-col items-center space-y-16 ${textClassName}`} ref={sliderRef}>
+        <div className={`w-full flex flex-col items-center space-y-16 ${textClassName}`} ref={bgScrollPointFirstRef}>
             <div className="flex flex-col items-center space-y-8">
                 <div className="flex flex-col space-y-2 w-[1100px]">
                     <h1 className={`text-8xl ${ghostTextClassName}`}>Port</h1>
@@ -101,42 +101,42 @@ function Port() {
     )
 }
 
-interface PortController {
-    sliderRef: React.RefObject<HTMLDivElement>;
-    textClassName: string;
-    ghostTextClassName: string;
-}
+// interface PortController {
+//     sliderRef: React.RefObject<HTMLDivElement>;
+//     textClassName: string;
+//     ghostTextClassName: string;
+// }
 
-function usePort(): PortController {
-    const sliderRef = useRef<HTMLDivElement>(null);
-    const { backgroundStatus, setBackgroundStatus } = useDesignContext();
-    const textClassName = backgroundStatus === BackgroundStatus.WHITE ? "transition-colors duration-1000" : "transition-colors duration-1000 text-white";
-    const ghostTextClassName = backgroundStatus === BackgroundStatus.WHITE ? "ghost-disappear" : "ghost-appear";
+// function usePort(): PortController {
+//     const sliderRef = useRef<HTMLDivElement>(null);
+//     const { backgroundStatus } = useDesignContext();
+//     const textClassName = backgroundStatus === BackgroundStatus.WHITE ? "transition-colors duration-1000" : "transition-colors duration-1000 text-white";
+//     const ghostTextClassName = backgroundStatus === BackgroundStatus.WHITE ? "ghost-disappear" : "ghost-appear";
 
-    const handleScroll = throttle(() => {
-        const refYTop = sliderRef.current?.getBoundingClientRect().top || 0;
-        const refYBottom = sliderRef.current?.getBoundingClientRect().bottom || 0;
+//     const handleScroll = throttle(() => {
+//         const refYTop = sliderRef.current?.getBoundingClientRect().top || 0;
+//         const refYBottom = sliderRef.current?.getBoundingClientRect().bottom || 0;
 
-        const thredhold = 250;
+//         const thredhold = 250;
 
 
-        if (refYTop < thredhold && refYBottom > thredhold) {
-            setBackgroundStatus(BackgroundStatus.DARK);
-        } else if (refYTop >= thredhold || refYBottom <= thredhold) {
-            setBackgroundStatus(BackgroundStatus.WHITE);
-        }        
-    }, 200);
+//         if (refYTop < thredhold && refYBottom > thredhold) {
+//             setBackgroundStatus(BackgroundStatus.DARK);
+//         } else if (refYTop >= thredhold || refYBottom <= thredhold) {
+//             setBackgroundStatus(BackgroundStatus.WHITE);
+//         }        
+//     }, 200);
     
-    useEffect(() => {
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, [backgroundStatus]);
+//     useEffect(() => {
+//         window.addEventListener("scroll", handleScroll);
+//         return () => window.removeEventListener("scroll", handleScroll);
+//     }, [backgroundStatus]);
 
-    return {
-        sliderRef,
-        textClassName,
-        ghostTextClassName,
-    };
-}
+//     return {
+//         sliderRef,
+//         textClassName,
+//         ghostTextClassName,
+//     };
+// }
 
 export default Port;

@@ -7,14 +7,21 @@ import NavWindowService from "../../molecules/nav-windows/NavWindowService/NavWi
 import NavWindowPortMap from "../../molecules/nav-windows/NavWindowPortMap/NavWindowPortMap";
 import NavWindowCompanyInfo from "../../molecules/nav-windows/NavWindowCompanyInfo/NavWindowCompanyInfo";
 import { useDesignContext, HeaderStatus } from "@/commons/contexts/DesignContext";
+import LinkButtonWithIcon from "../../atoms/LinkButtonWithIcon/LinkButtonWithIcon";
+import LuupIcon from "@/commons/assets/icons/luup.svg";
 import "./Header.css";
 
 function Header() {
     const { headerStatus } = useDesignContext();
     const headerClassName = headerStatus === HeaderStatus.CLOSED ? "disappear" : "appear";
+    
     return (
-        <header className={`w-full fixed top-0 ${headerClassName}`}>
-            <nav className="flex justify-end">
+        <header className={`w-full fixed top-0 flex justify-between ${headerClassName}`}>
+            <div className="w-20 h-16 relative ml-4">
+                {headerStatus == HeaderStatus.SECOND && <LuupIcon className="w-full h-full fill-black" />}
+            </div>
+
+            <nav className="flex justify-end items-center">
                 <ul className="flex p-2">
                     <li>
                         <LinkButtonSpawnNavWindow
@@ -46,6 +53,13 @@ function Header() {
                         />
                     </li>
                 </ul>
+
+                {headerStatus == HeaderStatus.SECOND &&
+                    <LinkButtonWithIcon
+                        label="ポート設置のご相談"
+                        className="mr-6"
+                    />
+                }
             </nav>
         </header>
     )
