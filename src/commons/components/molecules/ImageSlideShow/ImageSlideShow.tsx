@@ -1,41 +1,47 @@
-import ImageInfo from "@/commons/classes/ImageInfo";
-import GeneralProps from "@/commons/types/GeneralProps";
+import {IImageInfo} from "@/commons/classes/ImageInfo";
+import GeneralProps2 from "@/commons/types/GeneralProps2";
 import MyImage from "../../atoms/MyImage/MyImage";
 import { useEffect, useState } from "react";
 import "./ImageSlideShow.css";
 
-// TODO: CSSのFadeIn, FadeOutが効いてくれない
+/*
+    TODO: Scrollするたびに再レンダリングされるため、表示がおかしくなる
+    スクロールせずに、止まっているときは、結構いい感じになる
+*/
 
-interface ImageSlideShowProps extends GeneralProps {
-    imageInfos: ImageInfo[];
+interface ImageSlideShowProps extends GeneralProps2 {
+    imageInfos: IImageInfo[];
 }
 
-function ImageSlideShow({ imageInfos, width="500px", height }: ImageSlideShowProps) {
-    const { prevImage, currImage } = useIMageSlideShow(imageInfos, width);
+function ImageSlideShow({ imageInfos, className = "" }: ImageSlideShowProps) {
+    const { prevImage, currImage } = useIMageSlideShow(imageInfos);
+    const _className = `image-slide-show ${className}`;
 
     return (
-        <div className="image-slide-show" style={{width: width, height: height}}>
+        <div className={_className}>
             <MyImage
                 info={prevImage}
+                key={Math.random().toString()}
             />
+
             <MyImage
                 info={currImage}
+                key={Math.random().toString()}
             />
         </div>
     )
 }
 
 interface ImageSlideShowController {
-    prevImage: ImageInfo;
-    currImage: ImageInfo;
+    prevImage: IImageInfo;
+    currImage: IImageInfo;
 }
 
-function useIMageSlideShow(imageInfos: ImageInfo[], imageWidth: string): ImageSlideShowController {
+function useIMageSlideShow(imageInfos: IImageInfo[]): ImageSlideShowController {
     if (imageInfos.length < 2) {
         throw new Error("At least 2 images are required.");
     }
     
-    const width = parseInt(imageWidth.replace("px", "")); // TODO: *pxの形式で入力されることを前提としている, 要修正
     const [pos, setPos] = useState(0);
 
     function nextImage() {
@@ -48,8 +54,8 @@ function useIMageSlideShow(imageInfos: ImageInfo[], imageWidth: string): ImageSl
     }, []);
 
     return {
-        prevImage: imageInfos[pos % imageInfos.length].changeWidth(width),
-        currImage: imageInfos[(pos + 1) % imageInfos.length].changeWidth(width),
+        prevImage: imageInfos[pos % imageInfos.length],
+        currImage: imageInfos[(pos + 1) % imageInfos.length],
     }
 }
 

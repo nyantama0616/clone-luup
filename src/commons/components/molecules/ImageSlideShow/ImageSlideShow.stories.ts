@@ -16,14 +16,13 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Advertisement: Story = {
+export const WhyLuup: Story = {
     args: {
         imageInfos: [
             ImageInfos.Why0,
             ImageInfos.Why1,
             ImageInfos.Why2,
         ],
-        width: "500px",
-        height: "400px",
+        className: 'w-[1000px] h-[730px]',
     },
 };

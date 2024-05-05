@@ -4,9 +4,15 @@ import MyImage from "../../atoms/MyImage/MyImage";
 import ImageInfos from "@/commons/enums/images.gen";
 import LinkButtonWithIcon from "../../atoms/LinkButtonWithIcon/LinkButtonWithIcon";
 import { useDesignContext } from "@/commons/contexts/DesignContext";
+import ImageSlideShow from "../../molecules/ImageSlideShow/ImageSlideShow";
 
 function WhyLuup() {
     const { showWhyLuup, whyLuupRef } = useDesignContext();
+    const images = [
+        ImageInfos.Why0,
+        ImageInfos.Why1,
+        ImageInfos.Why2,
+    ].map(info => info.plainObject);
 
     return (
         <div className="w-full flex justify-center">
@@ -44,7 +50,8 @@ function WhyLuup() {
                     TODO: Slide Showにする
                     Next.jsではクラスをpropsに渡したりできないらしい
                 */}
-                <MyImage info={ImageInfos.Why0} />
+                {/* <MyImage info={ImageInfos.Why0} /> */}
+                <ImageSlideShow imageInfos={images} className="w-full h-[730px]"/>
 
                 <div className="flex flex-col items-center space-y-4">
                     <p>なぜLUUPを社会実装するのか？</p>
