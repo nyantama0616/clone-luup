@@ -25,6 +25,8 @@ export type DesignContextType = {
     headerScrollPointSecondRef: React.RefObject<HTMLDivElement> | null;
     bgScrollPointFirstRef: React.RefObject<HTMLDivElement> | null;
     bgScrollPointSecondRef: React.RefObject<HTMLDivElement> | null;
+    whyLuupRef: React.RefObject<HTMLDivElement> | null;
+    showWhyLuup: boolean;
 };
 
 const initialContext: DesignContextType = {
@@ -37,6 +39,8 @@ const initialContext: DesignContextType = {
     headerScrollPointSecondRef: null,
     bgScrollPointFirstRef: null,
     bgScrollPointSecondRef: null,
+    whyLuupRef: null,
+    showWhyLuup: false,
 };
 
 const DesignContext = createContext<DesignContextType>(initialContext);
@@ -49,6 +53,7 @@ interface DesignContextState {
     headerStatus: HeaderStatus;
     showMask: boolean;
     backgroundStatus: BackgroundStatus;
+    showWhyLuup: boolean;
 }
 
 export function DesignContextProvider({ children }: { children: React.ReactNode }) {
@@ -61,12 +66,14 @@ function useDesignContextController(): DesignContextType {
         headerStatus: HeaderStatus.FIRST,
         showMask: false,
         backgroundStatus: BackgroundStatus.WHITE,
+        showWhyLuup: false,
     });
 
     const headerScrollPointFirstRef = useRef<HTMLDivElement>(null);
     const headerScrollPointSecondRef = useRef<HTMLDivElement>(null);
     const bgScrollPointFirstRef = useRef<HTMLDivElement>(null);
     const bgScrollPointSecondRef = useRef<HTMLDivElement>(null);
+    const whyLuupRef = useRef<HTMLDivElement>(null);
 
     function setShowMask(show: boolean) {
         setState(prev => {
@@ -104,6 +111,15 @@ function useDesignContextController(): DesignContextType {
         });
     }
 
+    function setShowWhyLuup(show: boolean) {
+        setState(prev => {
+            return {
+                ...prev,
+                showWhyLuup: show,
+            }
+        });
+    }
+
     function handleHeaderScroll() {
         const threshold = 100;
         const windowY = window.scrollY;
@@ -115,6 +131,18 @@ function useDesignContextController(): DesignContextType {
             setHeaderStatus(HeaderStatus.CLOSED);
         } else if (headerSecondY < threshold) {
             setHeaderStatus(HeaderStatus.SECOND);
+        }
+    }
+
+    function handleWhyLuupScroll() {
+        const threshold = 800;
+
+        const refYTop = whyLuupRef.current?.getBoundingClientRect().top || 0;
+
+        if (refYTop < threshold) {
+            setShowWhyLuup(true);
+        } else if (refYTop >= threshold) {
+            setShowWhyLuup(false);
         }
     }
 
@@ -134,6 +162,7 @@ function useDesignContextController(): DesignContextType {
     const handleScroll = throttle(() => {
         handleHeaderScroll();
         handleBackgroundScroll();
+        handleWhyLuupScroll();
     }, 200);
 
     useEffect(() => {
@@ -151,5 +180,7 @@ function useDesignContextController(): DesignContextType {
         headerScrollPointSecondRef,
         bgScrollPointFirstRef,
         bgScrollPointSecondRef,
+        whyLuupRef,
+        showWhyLuup: state.showWhyLuup,
     };
 }

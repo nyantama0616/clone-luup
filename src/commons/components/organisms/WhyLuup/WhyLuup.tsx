@@ -3,14 +3,19 @@ import GhostText from "../../atoms/GhoastText/GhoastText";
 import MyImage from "../../atoms/MyImage/MyImage";
 import ImageInfos from "@/commons/enums/images.gen";
 import LinkButtonWithIcon from "../../atoms/LinkButtonWithIcon/LinkButtonWithIcon";
+import { useDesignContext } from "@/commons/contexts/DesignContext";
+
+import "./WhyLuup.css";
 
 function WhyLuup() {
+    const { showWhyLuup, whyLuupRef } = useDesignContext();
+
     return (
         <div className="w-full flex justify-center">
-            <div className="flex flex-col space-y-16 p-4" style={{width: 1100}}>
-                <div>
-                    <GhostText text="Why LUUP" />
-                    <p>LUUPが提供する価値</p>
+            <div className="flex flex-col space-y-20 p-4 w-[1100px]">
+                <div ref={whyLuupRef}>
+                    <GhostText text="Why LUUP" appear={showWhyLuup} className="text-7xl pb-6"/>
+                    <p className="text-2xl">LUUPが提供する価値</p>
                 </div>
                 
                 <ol className="grid grid-cols-3 gap-8">
@@ -29,7 +34,7 @@ function WhyLuup() {
                         </p>
                     </ListItem>
                     
-                    <ListItem index={2}>
+                    <ListItem index={3}>
                         <p>
                             環境負荷の低い<br />
                             持続可能な社会の実現
@@ -45,7 +50,10 @@ function WhyLuup() {
 
                 <div className="flex flex-col items-center space-y-4">
                     <p>なぜLUUPを社会実装するのか？</p>
-                    <LinkButtonWithIcon label="Why LUUP"/>
+                    <LinkButtonWithIcon
+                        label="Why LUUP"
+                        className="w-[300px] h-[60px]"
+                    />
                 </div>
             </div>
         </div>
@@ -60,8 +68,8 @@ interface ListItemProps {
 function ListItem({ index, children }: ListItemProps) {
     const indexStr = `${index.toString().padStart(2, '0')}.`;
     return (
-        <li className="border-t pt-4">
-            <h3 className="text-lg">{indexStr}</h3>
+        <li className="border-t pt-8 leading-relaxed">
+            <h3 className="text-5xl pb-6">{indexStr}</h3>
             {children}
         </li>
     );
