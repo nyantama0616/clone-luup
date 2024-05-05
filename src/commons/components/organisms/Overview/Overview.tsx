@@ -43,6 +43,13 @@ function Overview() {
                     <LuupBorder className="w-[800px] h-[212px]"/>
                     <div className="p-2 relative">
                         <MyImage info={ImageInfos.LuupRide} className="z-10"/>
+                        <div className="port-num w-full">
+                            <p className="text-white text-3xl text-center">
+                                全国
+                                <span className="text-7xl shadow">7,500</span>
+                                Port
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
