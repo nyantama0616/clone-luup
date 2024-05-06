@@ -11,7 +11,7 @@ function LinkButtonPlain({ label, to="#", textAlign="center", className="" }: Li
 
     return (
         <LinkButtonBase to={to} className={_className}>
-            <div className={`font-normal font-['Inter'] text-${textAlign}`}>
+            <div className={`font-normal font-['Inter'] text-${textAlign} px-2`}>
                 {label}
             </div>
         </LinkButtonBase>

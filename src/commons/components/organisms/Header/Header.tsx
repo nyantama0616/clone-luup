@@ -16,12 +16,12 @@ function Header() {
     const headerClassName = headerStatus === HeaderStatus.CLOSED ? "disappear" : "appear";
 
     return (
-        <header className={`w-full fixed top-0 flex justify-between ${headerClassName}`}>
-            <div className="w-20 h-16 relative ml-4">
+        <header className={`w-full h-20 fixed top-0 flex justify-between items-end ${headerClassName}`}>
+            <div className="w-20 h-16 relative ml-14">
                 {headerStatus == HeaderStatus.SECOND && <LuupIcon className="w-full h-full fill-black" />}
             </div>
 
-            <nav className="flex items-center">
+            <nav className="flex items-center mr-6">
                 <ul className="flex p-2">
                     <li>
                         <LinkButtonSpawnNavWindowContainer
@@ -41,7 +41,7 @@ function Header() {
                             navWindow={<NavWindowPortMap />}
                         />
                     </li>
-                    <li>
+                    <li className="px-3">
                         <LinkButtonPlain
                             label="News"
                         />
@@ -57,7 +57,7 @@ function Header() {
                 {headerStatus == HeaderStatus.SECOND &&
                     <LinkButtonWithIcon
                         label="ポート設置のご相談"
-                        className="mr-6"
+                        className="mr-2 w-[230px] h-[60px] text-xs"
                     />
                 }
             </nav>

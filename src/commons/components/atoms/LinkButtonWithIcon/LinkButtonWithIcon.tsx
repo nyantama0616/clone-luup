@@ -18,7 +18,7 @@ function LinkButtonWithIcon({ label, to, className }: LinkButtonWithIconProps) {
 
     return (
         <LinkButtonBase to={to} className={_className}>
-            <div className="text-base font-normal font-['Inter'] ml-6">{label}</div>
+            <div className="font-normal font-['Inter'] ml-6">{label}</div>
             <div className="w-6 h-6 relative mr-4">
                 <Image src="/icons/arrow-right.svg" alt="Arrow right" layout="fill" />
             </div>
