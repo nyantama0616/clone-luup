@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import Dropdown from './Dropdown';
 
 const meta = {
-    title: 'Commons/Molecules/Dropdown',
+    title: 'Commons/Molecules/Dropdown/Dropdown',
     component: Dropdown,
     parameters: {
         layout: 'centered',

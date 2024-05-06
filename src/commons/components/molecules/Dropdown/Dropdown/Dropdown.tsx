@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import GeneralProps2 from "@/commons/types/GeneralProps2";
-// import DropdownIcon from "./dropdown.svg";
+import DropdownIcon from "./dropdown.svg";
 
+// TODO: クリックすると緑色になるようにする
 interface DropdownProps extends GeneralProps2 {
     label?: string;
     spawned?: React.ReactElement;
@@ -11,7 +12,7 @@ function Dropdown({ label = "", spawned, className }: DropdownProps) {
     const { isHovered, isClicked, ref, handleMouseEnter, handleMouseLeave, handleClick } = useDropdown();
     // const borderColor = isClicked ? "primary-100" : isHovered ? "gray-300" : "gray-200";
     const borderColor = isClicked ? "primary-100" : "gray-200";
-    const _className = `w-[300px] h-[60px] border rounded-md border-${borderColor} flex justify-between items-center px-6 cursor-pointer ${className}`;
+    const _className = `w-full h-full border rounded-md border-${borderColor} flex justify-between items-center px-6 cursor-pointer`;
     const spawnedClassName = `absolute mt-2 ${spawned?.props.className || ""}`;
     const spawnedWithProps = React.cloneElement(spawned!, { className: spawnedClassName });
 
@@ -22,11 +23,16 @@ function Dropdown({ label = "", spawned, className }: DropdownProps) {
 
     
     return (
-        <div className="pb-2 relative" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} onClick={handleClick} ref={ref}>
+        <div
+            className={`pb-2 relative ${className}`}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            onClick={handleClick} ref={ref}
+        >
             <div className={_className}>
                 <p>{label}</p>
-                {/* <DropdownIcon /> */}
-                <div className="w-2 h-2 bg-primary-100"></div>
+                <DropdownIcon />
+                {/* <div className="w-2 h-2 bg-primary-100"></div> */}
             </div>
 
             {isHovered && spawnedWithProps}
