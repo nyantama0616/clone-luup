@@ -3,14 +3,16 @@ import GhostText from "../../atoms/GhoastText/GhoastText";
 import ImageSlider from "../../molecules/ImageSlider/ImageSlider";
 import ImageInfos from "@/commons/enums/images.gen";
 import LinkButtonWithIcon from "../../atoms/LinkButtonWithIcon/LinkButtonWithIcon";
+import LinkButtonNoIcon from "../../atoms/LinkButtonNoIcon/LinkButtonNoIcon";
 import PortMap from "../../molecules/PortMap/PortMap";
 import { useDesignContext, BackgroundStatus } from "@/commons/contexts/DesignContext";
 import "@/commons/styles/ghost.css";
 import LuupBorder from "../../atoms/LuupBorder/LuupBorder";
+import DropdownOtherCountry from "../../molecules/Dropdown/DropdownOtherCountry/DropdownOtherCountry";
 
 function Port() {
     const { backgroundStatus, bgScrollPointFirstRef, bgScrollPointSecondRef } = useDesignContext();
-    const textClassName = backgroundStatus === BackgroundStatus.WHITE ? "transition-colors duration-1000" : "transition-colors duration-1000 text-white";
+    const textClassName = backgroundStatus === BackgroundStatus.DARK ? "transition-colors duration-1000 text-white" : "transition-colors duration-1000 text-black";
     const linkButtonClassName = `w-[300px] h-[60px] mt-8 ${textClassName}`;
 
     const images = [
@@ -61,14 +63,14 @@ function Port() {
                 />
             </div>
 
-            <div className="flex flex-col items-center space-y-10">
-                <div className="bg-white border rounded-md w-[1100px] h-[500px] grid grid-cols-5">
-                    <div className="col-span-2 h-full flex flex-col items-center space-y-4 p-8">
-                        <h3 className="text-3xl">
+            <div className="flex flex-col items-center space-y-10 text-black">
+                <div className="bg-white border rounded-md w-[1150px] h-[500px] grid grid-cols-5">
+                    <div className="col-span-2 h-full flex flex-col justify-center space-y-4 p-10">
+                        <h3 className="text-4xl">
                             提供エリア拡大中
                         </h3>
 
-                        <p>
+                        <p className="leading-loose">
                             展開エリアに高密度にポートを設置。<br />
                             アプリをダウンロードして、<br />
                             最寄りのポート（LUUP専用駐車場）を <br />
@@ -77,18 +79,19 @@ function Port() {
 
                         <div className="grid grid-cols-2 gap-2 w-full">
                             {/* TODO: アイコンなしにする */}
-                            <LinkButtonWithIcon label="東京" />
-                            <LinkButtonWithIcon label="大阪" />
-                            <LinkButtonWithIcon label="横浜" />
-                            <LinkButtonWithIcon label="京都" />
+                            <LinkButtonNoIcon label="東京" className="h-[40px]"/>
+                            <LinkButtonNoIcon label="大阪" className="h-[40px]"/>
+                            <LinkButtonNoIcon label="横浜" className="h-[40px]"/>
+                            <LinkButtonNoIcon label="京都" className="h-[40px]"/>
                             {/* TODO: その他を追加 */}
+                            <DropdownOtherCountry className="col-span-2 h-[50px] mt-2" />
                         </div>
                     </div>
 
                     <PortMap className="col-span-3 h-full" />
                 </div>
 
-                <div className="flex justify-between w-[800px]" ref={bgScrollPointSecondRef}>
+                <div className={`flex justify-between w-[800px] ${textClassName}`} ref={bgScrollPointSecondRef}>
                     <div className="flex flex-col items-center space-y-2">
                         <p>物件オーナー・管理者の方</p>
                         <LinkButtonWithIcon
