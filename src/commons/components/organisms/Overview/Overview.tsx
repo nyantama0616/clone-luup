@@ -40,7 +40,7 @@ function Overview() {
                 </div>
 
                 <div className="relative">
-                    <LuupBorder className="w-[800px] h-[212px]"/>
+                    <LuupBorder />
                     <div className="p-2 relative">
                         <MyImage info={ImageInfos.LuupRide} className="z-10"/>
                         <div className="port-num w-full">

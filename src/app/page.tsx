@@ -32,7 +32,7 @@ function HomePage() {
             <Service />
             <News />
             <HelpAndRecruit />
-            <div>
+            <div className="w-full py-24">
                 <PortEstablish />
                 <AppDownload />
             </div>

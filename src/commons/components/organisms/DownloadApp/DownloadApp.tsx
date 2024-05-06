@@ -4,7 +4,7 @@ import ImageInfos from "@/commons/enums/images.gen";
 
 function AppDownload() {
     return (
-        <div className="flex justify-center pt-16 pb-16">
+        <div className="flex justify-center py-12 bg-white">
             <div className="grid grid-cols-5 gap-8 w-[1100px]">
                 <MyImage
                     className="col-span-3"
