@@ -16,7 +16,7 @@ interface LinkButtonSpawnNavWindowProps extends LinkButtonProps {
 function LinkButtonSpawnNavWindow({ label, navWindow, className, onMouseEnter, onMouseLeave }: LinkButtonSpawnNavWindowProps) {
     const { isHovered, handleMouseEnter, handleMouseLeave } = useLinkButtonNavWindow();
     const navWindowWithProps = React.cloneElement(navWindow, { className: "spawned" });
-    // const _className = `${className} border border-red`;
+    const _className = `py-2 ${className}`;
 
     function _onMouseEnter() {
         handleMouseEnter();
@@ -30,7 +30,7 @@ function LinkButtonSpawnNavWindow({ label, navWindow, className, onMouseEnter, o
 
     return (
         <LinkButtonBase
-            className={className}
+            className={_className}
             onMouseEnter={_onMouseEnter}
             onMouseLeave={_onMouseLeave}
         >

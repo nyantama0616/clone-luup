@@ -14,7 +14,8 @@ function DropdownOtherCountry({ className }: GeneralProps2) {
             label="その他の街"
             className={_className}
             spawned={
-                <div className="w-full rounded-md bg-white">
+                // TODO: box-shadowつけたいけど、子要素にまでshadowがついてしまう...
+                <div className="w-full rounded-md bg-white py-2">
                     <ul>
                         {countryItems}
                     </ul>
