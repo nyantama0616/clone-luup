@@ -21,8 +21,8 @@ function Header() {
                 {headerStatus == HeaderStatus.SECOND && <LuupIcon className="w-full h-full fill-black" />}
             </div>
 
-            <nav className="flex items-center mr-6">
-                <ul className="flex p-2">
+            <nav className="flex mr-6 relative">
+                <ul className="flex">
                     <li>
                         <LinkButtonSpawnNavWindowContainer
                             label="Why LUUP"

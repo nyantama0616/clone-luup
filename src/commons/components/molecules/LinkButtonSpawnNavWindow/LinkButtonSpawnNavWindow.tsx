@@ -34,8 +34,8 @@ function LinkButtonSpawnNavWindow({ label, navWindow, className, onMouseEnter, o
             onMouseEnter={_onMouseEnter}
             onMouseLeave={_onMouseLeave}
         >
-            <div className="px-5 py-2 text-dark hover:text-white">
-                <h3 className="text-center">{label}</h3>
+            <div className="px-5 p-2 h-full text-dark hover:text-white">
+                <h3>{label}</h3>
                 {isHovered && navWindowWithProps}
             </div>
         </LinkButtonBase>
