@@ -66,8 +66,8 @@ function NewsItem({ imageInfo, date, title, className = "" }: NewsItemProps) {
             <a className="grid grid-cols-4 pt-8 pb-8 gap-4" href="#" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
                 {/* <MyImage info={imageInfo} /> */}
                 <ImageZoomable imageInfo={imageInfo} isHovered={isHovered} className="w-[180px] h-[96px]"/>
-                <div className="col-span-3 flex flex-col space-x-1 space-y-1 justify-center">
-                    <div className="flex items-center space-x-3">
+                <div className="col-span-3 flex flex-col space-x-2 space-y-1 justify-center">
+                    <div className="flex items-center space-x-3 ml-2">
                         <p className="text-gray-300 text-xs">{getDate(date)}</p>
                         <div className="bg-gray-200 w-[56px] h-[22px] text-center text-xs text-gray-300 rounded-md flex justify-center items-center p-3"><p>PRESS</p></div>
                     </div>
