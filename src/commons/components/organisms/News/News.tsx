@@ -11,8 +11,8 @@ import { useState } from "react";
 function News() {
     return (
         <div className="flex justify-center">
-            <div className="grid grid-cols-4 gap-16 w-[1250px] bg-white p-16 rounded-md">
-                <div className="col-span-1 flex flex-col space-y-4">
+            <div className="flex space-x-24 w-[1250px] bg-white px-24 pb-16 rounded-md relative">
+                <div className="col-span-1 flex flex-col space-y-4 w-[200px] h-[370px] pt-16 sticky top-0">
                     <div>
                         <h1 className="text-5xl">News</h1>
                         <ul>
@@ -35,13 +35,12 @@ function News() {
                     <LinkButtonWithIcon label="News一覧へ" className="text-sm"/>
                 </div>
 
-                <div className="col-span-3">
+                <div className="col-span-3 pt-16 w-[750px]">
                     <h5 className="pb-4">最新情報</h5>
                     <ul>
                         <NewsItem imageInfo={ImageInfos.News0.changeWidth(178)} date={new Date()} title="プレミアホテル-CABIN PRESIDENT-東京に「LUUP」のポートを導入"/>
                         <NewsItem imageInfo={ImageInfos.News1.changeWidth(178)} date={new Date()} title="電動アシスト自転車の動産信託等を通じた、三菱UFJ銀行と三菱UFJ信託銀行 協働でのLuupの事業拡大支援について"/>
                         <NewsItem imageInfo={ImageInfos.News2.changeWidth(178)} date={new Date()} title="【電動キックボード提供開始3周年記念】東京・大阪市・京都市限定「乗り放題ウィーク」を開催" className="border-b"/>
-                        {/* TODO: 一番下のborderラインを消す */}
                     </ul>
                 </div>
             </div>
