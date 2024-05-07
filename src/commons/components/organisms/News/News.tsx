@@ -27,7 +27,6 @@ function News() {
                         </ul>
                     </div>
 
-                    {/* TODO: 仮実装 */}
                     <DropdownPeriod className="h-12 text-sm"/>
 
                     <LinkButtonWithIcon label="News一覧へ" className="text-sm"/>

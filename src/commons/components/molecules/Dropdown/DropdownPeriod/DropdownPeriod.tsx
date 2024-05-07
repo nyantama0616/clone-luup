@@ -14,7 +14,7 @@ function DropdownPeriod({ className }: GeneralProps2) {
             label="期間で検索"
             className={_className}
             spawned={
-                <div className="w-full rounded-md bg-white py-2 h-[400px] overflow-y-scroll">
+                <div className="w-full rounded-md bg-white py-2 h-[400px] overflow-y-scroll drop-shadow">
                     <div className="bg-gray-100 mb-2"><a className="pl-3 py-1 inline-block w-full" href="#">全期間</a></div>
                     {periodElements}
                 </div>
@@ -30,7 +30,7 @@ function Section({ months }: SectionProps) {
     return (
         <ul className="border-t py-2">
             {months.map((month, index) => (
-                <li key={index} className="flex"><a className="hover:bg-gray-100 w-full px-3 py-1" href="#">{month}</a></li>
+                <li key={index} className="flex"><a className="hover:bg-gray-100 w-full px-3 py-1" href="#"><p>{month}</p></a></li>
             ))}
         </ul>
     );
