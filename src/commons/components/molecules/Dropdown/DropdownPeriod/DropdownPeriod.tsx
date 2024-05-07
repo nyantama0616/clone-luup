@@ -13,6 +13,7 @@ function DropdownPeriod({ className }: GeneralProps2) {
         <Dropdown
             label="期間で検索"
             className={_className}
+            border="border-b"
             spawned={
                 <div className="w-full rounded-md bg-white py-2 h-[400px] overflow-y-scroll drop-shadow">
                     <div className="bg-gray-100 mb-2"><a className="pl-3 py-1 inline-block w-full" href="#">全期間</a></div>

@@ -6,14 +6,15 @@ import DropdownIcon from "./dropdown.svg";
 interface DropdownProps extends GeneralProps2 {
     label?: string;
     spawned?: React.ReactElement;
+    border?: "border" | "border-t" | "border-b" | "border-l" | "border-r";
 }
 
 // TODO: borderの指定方法考える
-function Dropdown({ label = "", spawned, className }: DropdownProps) {
+function Dropdown({ label = "", spawned, className, border="border" }: DropdownProps) {
     const { isHovered, isClicked, ref, handleMouseEnter, handleMouseLeave, handleClick } = useDropdown();
     // const borderColor = isClicked ? "primary-100" : isHovered ? "gray-300" : "gray-200";
     const borderColor = isClicked ? "primary-100" : "gray-200";
-    const _className = `w-full h-full border-b rounded-md border-${borderColor} flex justify-between items-center px-4 cursor-pointer`;
+    const _className = `w-full h-full ${border} rounded-md border-${borderColor} flex justify-between items-center px-4 cursor-pointer`;
     const spawnedClassName = `absolute mt-2 ${spawned?.props.className || ""}`;
     const spawnedWithProps = React.cloneElement(spawned!, { className: spawnedClassName });
 
