@@ -2,10 +2,10 @@ import GhostText from "../../atoms/GhoastText/GhoastText";
 import ImageZoomable from "../../atoms/ImageZoomable/ImageZoomable";
 import ImageInfos from "@/commons/enums/images.gen";
 import ImageInfo from "@/commons/classes/ImageInfo";
-import LinkButtonWithIcon from "../../atoms/LinkButtonWithIcon/LinkButtonWithIcon";
 import AwesomeButton from "./AwesomeButton";
 import { useDesignContext } from "@/commons/contexts/DesignContext";
 import { useState } from "react";
+import LinkButtonWithImage from "../../atoms/LinkButtonWithImage/LinkButtonWithImage";
 
 function Service() {
     const { showService, serviceRef } = useDesignContext();
@@ -26,10 +26,13 @@ function Service() {
                 <ServiceItem imageInfo={ImageInfos.ServiceUsage} text="LUUPのご利用方法" borderRight/>
             </div>
 
-            {/* TODO: 画像付きにする */}
             {/* TODO: 親要素のspace-y-8のせいで子要素にmarginを指定できないため、divで囲っいる */}
             <div>
-                <LinkButtonWithIcon label="新しい交通ルールについて" className="w-[350px] mt-16"/>
+                <LinkButtonWithImage
+                    label="新しい交通ルールについて"
+                    imageInfo={ImageInfos.NewTraffic}
+                    className="w-[480px]"
+                />
             </div>
         </div>
     );

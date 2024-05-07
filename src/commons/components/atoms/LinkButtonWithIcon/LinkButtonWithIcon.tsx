@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 import LinkButtonBase, { LinkButtonProps } from "../LinkButtonBase";
 import ArrowRightIcon from "@/commons/assets/icons/arrow-right.svg";
 interface LinkButtonWithIconProps extends LinkButtonProps {
