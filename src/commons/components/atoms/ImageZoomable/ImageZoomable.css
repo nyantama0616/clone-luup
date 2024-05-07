@@ -1,0 +1,27 @@
+.image-zoomable-hovered {
+    animation: image-zoomable-hovered 0.5s ease-in-out forwards;
+}
+
+@keyframes image-zoomable-hovered {
+  0% {
+    transform: scale(1);
+  }
+  
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+.image-zoomable-unhovered {
+    animation: image-zoomable-unhovered 0.5s ease-in-out forwards;
+}
+
+@keyframes image-zoomable-unhovered {
+  0% {
+    transform: scale(1.1);
+  }
+  
+  100% {
+    transform: scale(1);
+  }
+}

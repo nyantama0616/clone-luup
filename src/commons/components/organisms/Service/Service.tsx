@@ -56,6 +56,7 @@ function ServiceItem({ imageInfo, text, borderRight = false }: ServiceItemProps)
                 <ImageZoomable
                     imageInfo={imageInfo}
                     className="w-[740px] h-[450px]"
+                    isHovered={isHovered}
                 />
                 <AwesomeButton label={text} isHovered={isHovered} />
             </div>
