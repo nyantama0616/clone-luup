@@ -9,7 +9,6 @@ function Service() {
         <div className="w-full flex flex-col space-y-8 items-center">
             <GhostText
                 text="Service"
-                size={3}
             />
 
             <h3>サービス</h3>
