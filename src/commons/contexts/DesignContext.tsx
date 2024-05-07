@@ -20,6 +20,7 @@ export type DesignContextType = {
     headerStatus: HeaderStatus;
     showMask: boolean;
     showWhyLuup: boolean;
+    showService: boolean;
     setShowMask: (show: boolean) => void;
     toggleShowMask: () => void;
     backgroundStatus: BackgroundStatus;
@@ -28,13 +29,15 @@ export type DesignContextType = {
     bgScrollPointFirstRef: React.RefObject<HTMLDivElement> | null;
     bgScrollPointSecondRef: React.RefObject<HTMLDivElement> | null;
     whyLuupRef: React.RefObject<HTMLDivElement> | null;
-    footerRef: React.RefObject<HTMLDivElement> | null;  
+    serviceRef: React.RefObject<HTMLDivElement> | null;
+    footerRef: React.RefObject<HTMLDivElement> | null;
 };
 
 const initialContext: DesignContextType = {
     headerStatus: HeaderStatus.CLOSED,
     showMask: false,
     showWhyLuup: false,
+    showService: false,
     setShowMask: () => { },
     toggleShowMask: () => { },
     backgroundStatus: BackgroundStatus.WHITE,
@@ -43,6 +46,7 @@ const initialContext: DesignContextType = {
     bgScrollPointFirstRef: null,
     bgScrollPointSecondRef: null,
     whyLuupRef: null,
+    serviceRef: null,
     footerRef: null,
 };
 
@@ -57,6 +61,7 @@ interface DesignContextState {
     showMask: boolean;
     backgroundStatus: BackgroundStatus;
     showWhyLuup: boolean;
+    showService: boolean;
 }
 
 export function DesignContextProvider({ children }: { children: React.ReactNode }) {
@@ -70,6 +75,7 @@ function useDesignContextController(): DesignContextType {
         showMask: false,
         backgroundStatus: BackgroundStatus.WHITE,
         showWhyLuup: false,
+        showService: false,
     });
 
     const headerScrollPointFirstRef = useRef<HTMLDivElement>(null);
@@ -77,6 +83,7 @@ function useDesignContextController(): DesignContextType {
     const bgScrollPointFirstRef = useRef<HTMLDivElement>(null);
     const bgScrollPointSecondRef = useRef<HTMLDivElement>(null);
     const whyLuupRef = useRef<HTMLDivElement>(null);
+    const serviceRef = useRef<HTMLDivElement>(null);
     const footerRef = useRef<HTMLDivElement>(null);
 
     function setShowMask(show: boolean) {
@@ -131,6 +138,17 @@ function useDesignContextController(): DesignContextType {
         });
     }
 
+    function setShowService(show: boolean) {
+        setState(prev => {
+            if (prev.showService === show) return prev;
+
+            return {
+                ...prev,
+                showService: show,
+            }
+        });
+    }
+
     function handleHeaderScroll() {
         const threshold = 100;
         const windowY = window.scrollY;
@@ -161,6 +179,18 @@ function useDesignContextController(): DesignContextType {
         }
     }
 
+    function handleServiceScroll() {
+        const threshold = 800;
+
+        const refYTop = serviceRef.current?.getBoundingClientRect().top || 0;
+
+        if (refYTop < threshold) {
+            setShowService(true);
+        } else if (refYTop >= threshold) {
+            setShowService(false);
+        }
+    }
+
     function handleBackgroundScroll() {
         const threshold = 450;
 
@@ -180,6 +210,7 @@ function useDesignContextController(): DesignContextType {
         handleHeaderScroll();
         handleBackgroundScroll();
         handleWhyLuupScroll();
+        handleServiceScroll();
     }, 200);
 
     useEffect(() => {
@@ -190,6 +221,7 @@ function useDesignContextController(): DesignContextType {
     return {
         headerStatus: state.headerStatus,
         showMask: state.showMask,
+        showService: state.showService,
         setShowMask,
         toggleShowMask,
         backgroundStatus: state.backgroundStatus,
@@ -199,6 +231,7 @@ function useDesignContextController(): DesignContextType {
         bgScrollPointSecondRef,
         whyLuupRef,
         showWhyLuup: state.showWhyLuup,
+        serviceRef,
         footerRef,
     };
 }

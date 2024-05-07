@@ -1,0 +1,42 @@
+.awesome-button-text {
+    animation: awesome-button-text-appear 0.5s ease forwards;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes awesome-button-text-appear {
+    0% {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+
+    25% {
+        opacity: 0;
+        transform: translateY(-50%);
+    }
+
+    50% {
+        opacity: 0;
+        transform: translateY(50%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.awesome-button-icon {
+    animation: awesome-button-icon-appear 0.5s ease forwards;
+    transform: translateX(-100%);
+}
+
+@keyframes awesome-button-icon-appear {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
