@@ -5,10 +5,13 @@ import InstagramIcon from "@/commons/assets/icons/instagram.svg";
 import NoteIcon from "@/commons/assets/icons/note.svg";
 import LinkButtonPlain from '../../atoms/LinkButtonPlain/LinkButtonPlain';
 import LinkButtonWithIcon from '../../atoms/LinkButtonWithIcon/LinkButtonWithIcon';
+import { useDesignContext } from '@/commons/contexts/DesignContext';
 
 function Footer() {
+    const { footerRef } = useDesignContext();
+    
     return (
-        <footer className="w-full flex">
+        <footer className="w-full flex" ref={footerRef}>
             <div className="height h-full grow rounded-md bg-gray-400 grid grid-cols-4 gap-4 p-16 text-white">
                 <div className="flex flex-col space-y-4">
                     <div className="w-32 h-16 relative">

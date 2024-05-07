@@ -19,6 +19,7 @@ export enum BackgroundStatus {
 export type DesignContextType = {
     headerStatus: HeaderStatus;
     showMask: boolean;
+    showWhyLuup: boolean;
     setShowMask: (show: boolean) => void;
     toggleShowMask: () => void;
     backgroundStatus: BackgroundStatus;
@@ -27,12 +28,13 @@ export type DesignContextType = {
     bgScrollPointFirstRef: React.RefObject<HTMLDivElement> | null;
     bgScrollPointSecondRef: React.RefObject<HTMLDivElement> | null;
     whyLuupRef: React.RefObject<HTMLDivElement> | null;
-    showWhyLuup: boolean;
+    footerRef: React.RefObject<HTMLDivElement> | null;  
 };
 
 const initialContext: DesignContextType = {
     headerStatus: HeaderStatus.CLOSED,
     showMask: false,
+    showWhyLuup: false,
     setShowMask: () => { },
     toggleShowMask: () => { },
     backgroundStatus: BackgroundStatus.WHITE,
@@ -41,7 +43,7 @@ const initialContext: DesignContextType = {
     bgScrollPointFirstRef: null,
     bgScrollPointSecondRef: null,
     whyLuupRef: null,
-    showWhyLuup: false,
+    footerRef: null,
 };
 
 const DesignContext = createContext<DesignContextType>(initialContext);
@@ -75,6 +77,7 @@ function useDesignContextController(): DesignContextType {
     const bgScrollPointFirstRef = useRef<HTMLDivElement>(null);
     const bgScrollPointSecondRef = useRef<HTMLDivElement>(null);
     const whyLuupRef = useRef<HTMLDivElement>(null);
+    const footerRef = useRef<HTMLDivElement>(null);
 
     function setShowMask(show: boolean) {
         setState(prev => {
@@ -95,7 +98,7 @@ function useDesignContextController(): DesignContextType {
         });
     };
 
-    function setHeaderStatus(status: HeaderStatus) {
+    function setHeaderStatus(status: HeaderStatus) {        
         setState(prev => {
             if (prev.headerStatus === status) return prev;
             
@@ -132,8 +135,12 @@ function useDesignContextController(): DesignContextType {
         const threshold = 100;
         const windowY = window.scrollY;
         const headerSecondY = headerScrollPointSecondRef.current?.getBoundingClientRect().bottom || 0;
+        const footerY = footerRef.current?.getBoundingClientRect().top || 0;
 
-        if (windowY < threshold) {
+        // TODO: 条件分岐の順番を見直す
+        if (footerY <= threshold) {
+            setHeaderStatus(HeaderStatus.CLOSED);
+        } else if (windowY < threshold) {
             setHeaderStatus(HeaderStatus.FIRST);
         } else if (windowY >= threshold && headerSecondY > threshold) {
             setHeaderStatus(HeaderStatus.CLOSED);
@@ -192,5 +199,6 @@ function useDesignContextController(): DesignContextType {
         bgScrollPointSecondRef,
         whyLuupRef,
         showWhyLuup: state.showWhyLuup,
+        footerRef,
     };
 }

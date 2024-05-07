@@ -15,7 +15,7 @@ function DropdownPeriod({ className }: GeneralProps2) {
             className={_className}
             spawned={
                 <div className="w-full rounded-md bg-white py-2 h-[400px] overflow-y-scroll">
-                    <div className="bg-gray-100 mb-2"><h5 className="pl-3">全期間</h5></div>
+                    <div className="bg-gray-100 mb-2"><a className="pl-3 py-1 inline-block w-full" href="#">全期間</a></div>
                     {periodElements}
                 </div>
             }

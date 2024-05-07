@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import LinkButtonBase, { LinkButtonProps } from "../LinkButtonBase";
-
+import ArrowRightIcon from "@/commons/assets/icons/arrow-right.svg";
 interface LinkButtonWithIconProps extends LinkButtonProps {
     /**
      * Button contents
@@ -12,16 +12,14 @@ interface LinkButtonWithIconProps extends LinkButtonProps {
 //TODO: h-11消したい
 function LinkButtonWithIcon({ label, to, className }: LinkButtonWithIconProps) {
     const _className = `
-    h-11 rounded-md border border-neutral-200 justify-between items-center gap-2.5 inline-flex
+    h-11 rounded-md border border-neutral-200 justify-between items-center gap-2.5 inline-flex px-4
     text-dark hover:bg-dark hover:text-white transition-colors duration-500 ${className}
     `;
 
     return (
         <LinkButtonBase to={to} className={_className}>
-            <div className="font-normal font-['Inter'] ml-6">{label}</div>
-            <div className="w-6 h-6 relative mr-4">
-                <Image src="/icons/arrow-right.svg" alt="Arrow right" layout="fill" />
-            </div>
+            <div className="font-normal font-['Inter']">{label}</div>
+            <ArrowRightIcon className="w-6" />
         </LinkButtonBase>
     )
 }
