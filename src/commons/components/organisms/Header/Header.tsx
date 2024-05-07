@@ -21,8 +21,8 @@ function Header() {
                 {headerStatus == HeaderStatus.SECOND && <LuupIcon className="w-full h-full fill-black" />}
             </div>
 
-            <nav className="flex mr-6 relative">
-                <ul className="flex">
+            <nav className="flex mr-6 relative items-center">
+                <ul className="flex items-center">
                     <li>
                         <LinkButtonSpawnNavWindowContainer
                             label="Why LUUP"
@@ -57,7 +57,7 @@ function Header() {
                 {headerStatus == HeaderStatus.SECOND &&
                     <LinkButtonWithIcon
                         label="ポート設置のご相談"
-                        className="mr-2 w-[230px] h-[60px] text-xs"
+                        className=" mr-2 w-[230px] h-[60px] text-xs"
                     />
                 }
             </nav>

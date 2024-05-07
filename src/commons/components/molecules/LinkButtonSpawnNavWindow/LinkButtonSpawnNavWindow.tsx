@@ -34,7 +34,7 @@ function LinkButtonSpawnNavWindow({ label, navWindow, className, onMouseEnter, o
             onMouseEnter={_onMouseEnter}
             onMouseLeave={_onMouseLeave}
         >
-            <div className="px-5 p-2 h-full text-dark hover:text-white">
+            <div className="px-5 py-5 h-full text-dark hover:text-white">
                 <h3>{label}</h3>
                 {isHovered && navWindowWithProps}
             </div>
@@ -49,7 +49,7 @@ interface LinkButtonSpawnNavWindowController {
 }
 
 function useLinkButtonNavWindow(): LinkButtonSpawnNavWindowController {
-    const [isHovered, setIsHovered] = useState(false);
+    const [isHovered, setIsHovered] = useState(true);
     
     function handleMouseEnter() {
         setIsHovered(true);
