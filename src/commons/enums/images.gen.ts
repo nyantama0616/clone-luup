@@ -1,7 +1,9 @@
 
       import ImageInfo from "../classes/ImageInfo";
       const ImageInfos = {
-    		ServiceAbout: new ImageInfo("/images/ServiceAbout.webp", 800, 1105),
+    		AppStore: new ImageInfo("/images/AppStore.svg", 109, 40),
+		GooglePlay: new ImageInfo("/images/GooglePlay.webp", 646, 250),
+		ServiceAbout: new ImageInfo("/images/ServiceAbout.webp", 800, 1105),
 		ServiceMobility: new ImageInfo("/images/ServiceMobility.webp", 800, 1160),
 		StaticMapService: new ImageInfo("/images/StaticMapService.png", 691, 500),
 		AdApa: new ImageInfo("/images/ad/apa.webp", 400, 275),

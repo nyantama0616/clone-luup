@@ -1,6 +1,7 @@
 import LinkButtonWithIcon from "../../atoms/LinkButtonWithIcon/LinkButtonWithIcon";
 import MyImage from "../../atoms/MyImage/MyImage";
 import ImageInfos from "@/commons/enums/images.gen";
+import LinkButtonImage from "../../atoms/LinkButtonImage/LinkButtonImage";
 
 function AppDownload() {
     return (
@@ -13,15 +14,9 @@ function AppDownload() {
 
                 <div className="col-span-2 flex flex-col space-y-8 justify-center">
                     <h1 className="text-3xl">アプリのダウンロードはこちら</h1>
-                    <div className="flex space-x-4">
-                        {/* TODO: 画像にする */}
-                        <LinkButtonWithIcon
-                            label="App Store"
-                        />
-
-                        <LinkButtonWithIcon
-                            label="Google Play"
-                        />
+                    <div className="flex space-x-6 items-center">
+                        <LinkButtonImage imageInfo={ImageInfos.AppStore.changeWidth(120)}/>
+                        <LinkButtonImage imageInfo={ImageInfos.GooglePlay.changeWidth(150)}/>
                     </div>
 
                     <p className="text-gray-300 text-xs">
