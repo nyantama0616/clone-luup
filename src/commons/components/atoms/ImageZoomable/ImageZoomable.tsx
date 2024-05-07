@@ -9,14 +9,13 @@ interface ImageZoomableProps extends GeneralProps2 {
 
 function ImageZoomable({ imageInfo, className = '', onMouseEnter, onMouseLeave }: ImageZoomableProps): JSX.Element {
     const _className = `flex justify-center items-center overflow-hidden rounded-md ${className}`;
-    // const childClassName = `bg-center bg-cover bg-[url('/images/ServiceAbout.webp')] w-[${imageInfo.width}px] h-[${imageInfo.height}px]
-    //                         transition-transform duration-500 hover:scale-110`;
-    const childClassName = `bg-center bg-cover bg-[url('/images/ServiceAbout.webp')] w-[800px] h-[1105px]
-                            transition-transform duration-500 hover:scale-110`;
-
+    const childClassName = `bg-center bg-cover transition-transform duration-500 hover:scale-110`;
+    const bgImage = `url(${imageInfo.path})`;
+    
     return (
         <div className={_className} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
-            <a className={childClassName} href="#"></a>
+            {/* TODO: Tailwindはなぜかたまに、文字列中の式展開が効かないことがある */}
+            <a className={childClassName} href="#" style={{backgroundImage: bgImage, width: imageInfo.width, height: imageInfo.height}}></a>
         </div>
     );
 }

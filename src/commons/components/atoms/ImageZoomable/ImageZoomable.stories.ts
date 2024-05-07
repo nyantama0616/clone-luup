@@ -16,9 +16,17 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const ServiceAbout: Story = {
     args: {
         imageInfo: ImageInfos.ServiceAbout,
+        className: 'w-[740px] h-[450px]',
+    },
+};
+
+export const ServiceMobility: Story = {
+    args: {
+        imageInfo: ImageInfos.ServiceMobility,
+        // imageInfo: ImageInfos.ServiceAbout,
         className: 'w-[740px] h-[450px]',
     },
 };
