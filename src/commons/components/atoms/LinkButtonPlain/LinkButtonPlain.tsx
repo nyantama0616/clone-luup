@@ -7,12 +7,12 @@ interface LinkButtonPlainProps extends LinkButtonProps {
 }
 
 function LinkButtonPlain({ label, to="#", textAlign="center", className="" }: LinkButtonPlainProps) {
-    const _className = `flex rounded-md h-11 p-2 text-dark hover:bg-gray-100 ${className}`;
+    const _className = `flex rounded-md p-2 text-dark hover:bg-gray-100 ${className}`;
 
     return (
         <LinkButtonBase to={to} className={_className}>
-            <div className={`font-normal font-['Inter'] text-${textAlign} px-2`}>
-                {label}
+            <div className={`flex items-center text-${textAlign} px-2`}>
+                <p>{label}</p>
             </div>
         </LinkButtonBase>
     )
