@@ -8,11 +8,12 @@ interface DropdownProps extends GeneralProps2 {
     spawned?: React.ReactElement;
 }
 
+// TODO: borderの指定方法考える
 function Dropdown({ label = "", spawned, className }: DropdownProps) {
     const { isHovered, isClicked, ref, handleMouseEnter, handleMouseLeave, handleClick } = useDropdown();
     // const borderColor = isClicked ? "primary-100" : isHovered ? "gray-300" : "gray-200";
     const borderColor = isClicked ? "primary-100" : "gray-200";
-    const _className = `w-full h-full border rounded-md border-${borderColor} flex justify-between items-center px-6 cursor-pointer`;
+    const _className = `w-full h-full border-b rounded-md border-${borderColor} flex justify-between items-center px-6 cursor-pointer`;
     const spawnedClassName = `absolute mt-2 ${spawned?.props.className || ""}`;
     const spawnedWithProps = React.cloneElement(spawned!, { className: spawnedClassName });
 
