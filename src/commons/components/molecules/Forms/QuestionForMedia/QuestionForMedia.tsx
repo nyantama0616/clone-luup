@@ -80,7 +80,7 @@ const otherOptionForWhereLuup = {
     value: "",
 }
 
-function QuestionForApp({className=""}: GeneralProps2) {
+function QuestionForMedia({className=""}: GeneralProps2) {
     const _className = `flex flex-col space-y-6 ${className}`;
   
     return (
@@ -99,4 +99,4 @@ function QuestionForApp({className=""}: GeneralProps2) {
   );
 }
 
-export default QuestionForApp;
+export default QuestionForMedia;

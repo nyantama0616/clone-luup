@@ -12,16 +12,17 @@ interface RadioButtonProps extends GeneralProps2 {
     name?: string;
     value?: number;
     options?: RadioOption[];
+    onSelected?: (value: number) => void;
 }
 
-function RadioButton({ label, required = false, name, value=0, options=[], className="" }: RadioButtonProps) {
+function RadioButton({ label, required = false, name, value=0, options=[], className="", onSelected }: RadioButtonProps) {
     const requiredBgColor = required ? "bg-black" : "";
     const requiredText = required ? "必須" : "";
     const _className = `grid grid-cols-4 gap-8 ${className}`;
 
     const items = options.map((option, index) => {
         return (
-            <RadioItem label={option.label} checked={option.value === value} value={option.value} key={index} />
+            <RadioItem label={option.label} checked={option.value === value} value={option.value} key={index} onSelected={onSelected} />
         );
     });
 

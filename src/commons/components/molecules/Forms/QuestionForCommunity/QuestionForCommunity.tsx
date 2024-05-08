@@ -3,7 +3,7 @@ import TextArea from "../Parts/TextArea/TextArea";
 import GeneralProps2 from "@/commons/types/GeneralProps2";
 import LinkButtonPlain from "@/commons/components/atoms/LinkButtonPlain/LinkButtonPlain";
 
-function QuestionForApp({className=""}: GeneralProps2) {
+function QuestionForCommunity({className=""}: GeneralProps2) {
     const _className = `flex flex-col space-y-6 ${className}`;
   
     return (
@@ -21,4 +21,4 @@ function QuestionForApp({className=""}: GeneralProps2) {
   );
 }
 
-export default QuestionForApp;
+export default QuestionForCommunity;
