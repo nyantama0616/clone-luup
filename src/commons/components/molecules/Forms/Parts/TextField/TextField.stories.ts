@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import TextField from './TextField';
 
 const meta = {
-    title: 'Commons/Molecules/Forms/TextField',
+    title: 'Commons/Molecules/Forms/Parts/TextField',
     component: TextField,
     parameters: {
         layout: 'centered',

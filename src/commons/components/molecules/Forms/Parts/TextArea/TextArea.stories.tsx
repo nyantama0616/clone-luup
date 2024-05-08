@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import TextArea from './TextArea';
 
 const meta = {
-    title: 'Commons/Molecules/Forms/TextArea',
+    title: 'Commons/Molecules/Forms/Parts/TextArea',
     component: TextArea,
     parameters: {
         layout: 'centered',

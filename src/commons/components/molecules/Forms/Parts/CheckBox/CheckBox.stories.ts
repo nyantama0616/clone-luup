@@ -1,15 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import SelectBox from './RadioButton';
+import CheckBox from './CheckBox';
 
 const meta = {
-    title: 'Commons/Molecules/Forms/RadioButton',
-    component: SelectBox,
+    title: 'Commons/Molecules/Forms/Parts/CheckBox',
+    component: CheckBox,
     parameters: {
         layout: 'centered',
         design: {},
     },
     tags: ['autodocs'],
-} satisfies Meta<typeof SelectBox>;
+} satisfies Meta<typeof CheckBox>;
 
 export default meta;
 
@@ -20,7 +20,7 @@ export const Default: Story = {
         label: 'ラベル',
         required: true,
         className: "w-[960px]",
-        value: 1,
+        value: [1],
         options: [
             {
                 id: 1,
@@ -41,12 +41,12 @@ export const Default: Story = {
     },
 };
 
-export const KindOfQuestion: Story = {
+export const WhereKnow: Story = {
     args: {
-        label: 'お問い合わせの種類',
+        label: 'どこでLuupを知ったか',
         required: true,
         className: "w-[960px]",
-        value: 3,
+        value: [2, 5],
         options: [
             {
                 id: 1,
@@ -68,11 +68,10 @@ export const KindOfQuestion: Story = {
                 label: "ポート設置のご相談",
                 value: 4,
             },
-            {
-                id: 5,
-                label: "その他",
-                value: 5,
-            },
         ],
+        otherOption: {
+            checked: true,
+            value: "Youtubeで知った",
+        }
     },
 };
