@@ -14,7 +14,7 @@ function News() {
             <div className="flex space-x-24 w-[1250px] bg-white px-24 pb-16 rounded-md relative">
                 <div className="col-span-1 flex flex-col space-y-4 w-[200px] h-[370px] pt-16 sticky top-0">
                     <div>
-                        <h1 className="text-5xl">News</h1>
+                        <h1 className="text-5xl mb-2">News</h1>
                         <ul>
                             <li>
                                 <LinkButtonPlain label="ALL" textAlign="left" className="text-gray-200"/>
