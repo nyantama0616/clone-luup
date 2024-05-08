@@ -1,14 +1,20 @@
+import FormMain from "../../molecules/Forms/FormMain/FormMain";
+import GhostText from "../../atoms/GhoastText/GhoastText";
+import { useDesignContext } from "@/commons/contexts/DesignContext";
+
 function Contact() {
+    const { contactRef, showContact } = useDesignContext();
+
     return (
-        <div className="flex flex-col w-[1100px] space-y-8">
+        <div className="flex flex-col w-[1250px] space-y-8" ref={contactRef}>
             <div>
-                <h1 className="text-3xl mb-2">Contact</h1>
-                <p className="text-lg">お問い合わせ</p>
+                <GhostText text="Contact" className="text-8xl mb-4" appear={showContact} />
+                <p className="text-xl">お問い合わせ</p>
             </div>
             
             {/* TODO: Formを実装 */}
-            <div className="w-full h-[400px] bg-white">
-
+            <div className="w-full bg-white flex justify-center items-center py-16">
+                <FormMain className="w-[980px]"/>
             </div>
         </div>
     );

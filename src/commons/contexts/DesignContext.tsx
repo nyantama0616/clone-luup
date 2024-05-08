@@ -21,6 +21,7 @@ export type DesignContextType = {
     showMask: boolean;
     showWhyLuup: boolean;
     showService: boolean;
+    showContact: boolean;
     setShowMask: (show: boolean) => void;
     toggleShowMask: () => void;
     backgroundStatus: BackgroundStatus;
@@ -30,6 +31,7 @@ export type DesignContextType = {
     bgScrollPointSecondRef: React.RefObject<HTMLDivElement> | null;
     whyLuupRef: React.RefObject<HTMLDivElement> | null;
     serviceRef: React.RefObject<HTMLDivElement> | null;
+    contactRef: React.RefObject<HTMLDivElement> | null;
     footerRef: React.RefObject<HTMLDivElement> | null;
 };
 
@@ -38,6 +40,7 @@ const initialContext: DesignContextType = {
     showMask: false,
     showWhyLuup: false,
     showService: false,
+    showContact: false,
     setShowMask: () => { },
     toggleShowMask: () => { },
     backgroundStatus: BackgroundStatus.WHITE,
@@ -47,6 +50,7 @@ const initialContext: DesignContextType = {
     bgScrollPointSecondRef: null,
     whyLuupRef: null,
     serviceRef: null,
+    contactRef: null,
     footerRef: null,
 };
 
@@ -62,6 +66,7 @@ interface DesignContextState {
     backgroundStatus: BackgroundStatus;
     showWhyLuup: boolean;
     showService: boolean;
+    showContact: boolean;
 }
 
 export function DesignContextProvider({ children }: { children: React.ReactNode }) {
@@ -76,6 +81,7 @@ function useDesignContextController(): DesignContextType {
         backgroundStatus: BackgroundStatus.WHITE,
         showWhyLuup: false,
         showService: false,
+        showContact: false,
     });
 
     const headerScrollPointFirstRef = useRef<HTMLDivElement>(null);
@@ -84,6 +90,7 @@ function useDesignContextController(): DesignContextType {
     const bgScrollPointSecondRef = useRef<HTMLDivElement>(null);
     const whyLuupRef = useRef<HTMLDivElement>(null);
     const serviceRef = useRef<HTMLDivElement>(null);
+    const contactRef = useRef<HTMLDivElement>(null);
     const footerRef = useRef<HTMLDivElement>(null);
 
     function setShowMask(show: boolean) {
@@ -149,6 +156,17 @@ function useDesignContextController(): DesignContextType {
         });
     }
 
+    function setShowContact(show: boolean) {
+        setState(prev => {
+            if (prev.showContact === show) return prev;
+
+            return {
+                ...prev,
+                showContact: show,
+            }
+        });
+    }
+
     function handleHeaderScroll() {
         const threshold = 100;
         const windowY = window.scrollY;
@@ -191,6 +209,18 @@ function useDesignContextController(): DesignContextType {
         }
     }
 
+    function handleContactScroll() {
+        const threshold = 800;
+
+        const refYTop = contactRef.current?.getBoundingClientRect().top || 0;
+
+        if (refYTop < threshold) {
+            setShowContact(true);
+        } else if (refYTop >= threshold) {
+            setShowContact(false);
+        }
+    }
+
     function handleBackgroundScroll() {
         const threshold = 450;
 
@@ -211,6 +241,7 @@ function useDesignContextController(): DesignContextType {
         handleBackgroundScroll();
         handleWhyLuupScroll();
         handleServiceScroll();
+        handleContactScroll();
     }, 200);
 
     useEffect(() => {
@@ -222,6 +253,7 @@ function useDesignContextController(): DesignContextType {
         headerStatus: state.headerStatus,
         showMask: state.showMask,
         showService: state.showService,
+        showContact: state.showContact,
         setShowMask,
         toggleShowMask,
         backgroundStatus: state.backgroundStatus,
@@ -232,6 +264,7 @@ function useDesignContextController(): DesignContextType {
         whyLuupRef,
         showWhyLuup: state.showWhyLuup,
         serviceRef,
+        contactRef,
         footerRef,
     };
 }
