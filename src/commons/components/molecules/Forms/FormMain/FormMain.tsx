@@ -10,34 +10,36 @@ import { useState } from "react";
 
 const options = [
     {
-        id: 0,
-        label: "アプリや車両などサービスについて",
-        value: 0,
-    },
-    {
         id: 1,
-        label: "自治体・施設の方向け",
+        label: "アプリや車両などサービスについて",
         value: 1,
     },
     {
         id: 2,
-        label: "報道・メディアの方向け",
+        label: "自治体・施設の方向け",
         value: 2,
     },
     {
         id: 3,
-        label: "ポート設置のご相談",
+        label: "報道・メディアの方向け",
         value: 3,
     },
     {
         id: 4,
-        label: "その他",
+        label: "ポート設置のご相談",
         value: 4,
+    },
+    {
+        id: 5,
+        label: "その他",
+        value: 5,
     },
 ];
 
 function getForm(formType: Forms) {
     switch (formType) {
+        case Forms.None:
+            return null;
         case Forms.App:
             return <QuestionForApp />
         case Forms.Community:
@@ -68,14 +70,13 @@ function FormMain({ className = "" }: GeneralProps2) {
                 className="border-t py-6"
                 value={formType}
             />
-            <div className="border-t py-6">
-                {Question}
-            </div>
+            {Question && <div className="border-t py-6">{Question}</div>}
         </div>
     );
 }
 
 enum Forms {
+    None,
     App,
     Community,
     Media,
@@ -89,7 +90,7 @@ interface FormMainController {
 }
 
 function useFormMain(): FormMainController{
-    const [formType, setFormType] = useState<Forms>(Forms.App);
+    const [formType, setFormType] = useState<Forms>(Forms.None);
 
     function handleSelectFormType(value: number) {        
         setFormType(value);
