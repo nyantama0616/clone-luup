@@ -15,7 +15,7 @@ function QuestionForApp({className=""}: GeneralProps2) {
             <TextField label="お名前" placeholder="山田太郎" required />
             <TextField label="ふりがな" placeholder="やまだたろう" required />
             <TextField label="電話番号" placeholder="123456789" required />
-            <TextArea label="お問い合わせ詳細" placeholder="お問い合わせの内容をご記入ください。" required />
+            <TextArea label="お問い合わせ内容" placeholder="お問い合わせの内容をご記入ください。" required />
             <LinkButtonPlain label="送信確認" className="w-1/3 h-[60px] mx-auto border"/>
         </div>
   );
