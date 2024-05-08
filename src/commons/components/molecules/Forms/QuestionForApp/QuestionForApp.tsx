@@ -6,22 +6,22 @@ import GeneralProps2 from "@/commons/types/GeneralProps2";
 const options = [
     {
         id: 1,
-        label: "アプリや車両などサービスについて",
+        label: "機体について",
         value: 1,
     },
     {
         id: 2,
-        label: "自治体・施設の方向け",
+        label: "アプリについて",
         value: 2,
     },
     {
         id: 3,
-        label: "報道・メディアの方向け",
+        label: "故障について",
         value: 3,
     },
     {
         id: 4,
-        label: "ポート設置のご相談",
+        label: "事故やトラブルについて",
         value: 4,
     },
     {

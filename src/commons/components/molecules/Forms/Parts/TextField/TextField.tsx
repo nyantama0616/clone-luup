@@ -10,7 +10,8 @@ interface TextFieldProps extends GeneralProps2 {
 
 // TODO: フォーカス時の色を変えたい
 function TextField({ label, required = false, placeholder="", className="", name, value="" }: TextFieldProps) {
-    const requiredTag = required ? <span className="bg-black text-white text-xs rounded-md w-[50px] text-center px-2 py-1">必須</span> : null;
+    const requiredBgColor = required ? "bg-black" : "";
+    const requiredText = required ? "必須" : "";
     const _className = `grid grid-cols-4 gap-8 items-center ${className}`;
     const _placeholder = `例）${placeholder}`;
 
@@ -19,7 +20,9 @@ function TextField({ label, required = false, placeholder="", className="", name
             <span className="block text-base font-medium text-gray-700">{label}</span>
             
             <div className="col-span-3 flex items-center space-x-4">
-                {requiredTag}
+                <span className={`${requiredBgColor} text-white text-xs rounded-md w-[44px] h-[22px] text-center px-2 py-1`}>
+                    {requiredText}
+                </span>
                 <input
                     type="text"
                     placeholder={_placeholder}
