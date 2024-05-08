@@ -32,3 +32,13 @@ export const Question: Story = {
         className: "w-[960px]",
     }
 };
+
+export const HasValue: Story = {
+    args: {
+        label: 'お問い合わせ内容',
+        required: true,
+        placeholder: "お問い合わせ内容をご記入ください。",
+        className: "w-[960px]",
+        value: "お宅のクレープが不味すぎる！",
+    }
+};

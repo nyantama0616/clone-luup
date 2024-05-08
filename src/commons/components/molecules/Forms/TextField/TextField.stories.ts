@@ -38,6 +38,7 @@ export const Name: Story = {
         label: 'お名前',
         required: true,
         placeholder: "山田太郎",
+        value: "パンダマン",
         className: "w-[960px]",
     }
 };

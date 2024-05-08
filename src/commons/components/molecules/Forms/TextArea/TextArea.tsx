@@ -6,9 +6,10 @@ interface TextFieldProps extends GeneralProps2 {
     placeholder?: string;
     name?: string;
     rows?: number;
+    value?: string;
 }
 
-function TextArea({ label, required = false, placeholder = "", className = "", name, rows=11 }: TextFieldProps) {
+function TextArea({ label, required = false, placeholder = "", className = "", name, rows=11, value="" }: TextFieldProps) {
     const requiredBgColor = required ? "bg-black" : "";
     const requiredText = required ? "必須" : "";
     const _className = `grid grid-cols-4 gap-8 ${className}`;
@@ -28,6 +29,7 @@ function TextArea({ label, required = false, placeholder = "", className = "", n
                     required={required}
                     name={name}
                     rows={rows}
+                    value={value}
                     className="grow p-6 border border-gray-200 rounded-md placeholder-gray-200 focus:ring-red focus:border-red"
                 />
             </div>
