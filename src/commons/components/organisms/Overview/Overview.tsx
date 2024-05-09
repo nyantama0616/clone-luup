@@ -10,9 +10,9 @@ function Overview() {
     const { headerScrollPointSecondRef } = useDesignContext();
 
     return (
-        <div className="overview flex flex-col space-y-[330px] items-center">
-            <div className="flex" ref={headerScrollPointSecondRef}>
-                <div className="w-[380px] flex flex-col justify-between pt-10 pl-10 pb-10 pr-8">
+        <div className="overview flex flex-col space-y-[330px] items-center w-full">
+            <div className="flex w-full" ref={headerScrollPointSecondRef}>
+                <div className="w-[380px] flex-shrink-0 flex flex-col justify-between pt-10 pl-10 pb-10 pr-8">
                     <CatchCopy />
                     <div className="flex flex-col space-y-4">
                         <LinkButtonWithIcon
@@ -27,8 +27,8 @@ function Overview() {
                     </div>
                 </div>
 
-                <div className="w-[1600px] overflow-hidden relative">
-                    <MyImage info={ImageInfos.FirstView} className="first-view"/>
+                <div className="grow overflow-hidden">
+                    <MyImage info={ImageInfos.FirstView} className="first-view" rounded="left" />
                 </div>
             </div>
 
