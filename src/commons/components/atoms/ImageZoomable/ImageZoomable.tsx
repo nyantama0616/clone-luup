@@ -6,12 +6,14 @@ import "./ImageZoomable.css";
 interface ImageZoomableProps extends GeneralProps2 {
     imageInfo: IImageInfo;
     isHovered?: boolean;
+    rounded?: boolean;
 }
 
 // TODO: 最初にunhoveredのクラスがついてしまう
-function ImageZoomable({ imageInfo, className = '', isHovered = false }: ImageZoomableProps): JSX.Element {
+function ImageZoomable({ imageInfo, className = '', isHovered = false, rounded=true }: ImageZoomableProps): JSX.Element {
     const hoverClassName = isHovered ? 'image-zoomable-hovered' : 'image-zoomable-unhovered';
-    const _className = `flex justify-center items-center overflow-hidden rounded-md ${className}`;
+    const roundedClassName = rounded ? 'rounded-md' : '';
+    const _className = `flex justify-center items-center overflow-hidden ${roundedClassName} ${className}`;
     const childClassName = `bg-center bg-cover ${hoverClassName}`;
     const bgImage = `url(${imageInfo.path})`;
     
