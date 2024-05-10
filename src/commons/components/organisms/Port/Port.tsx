@@ -90,7 +90,7 @@ function Port() {
                     <PortMap className="md:col-span-3 h-full w-full" />
                 </div>
 
-                <div className={`flex flex-col md:flex-row md:justify-between w-full md:w-[800px] items-center p-6 ${textClassName}`} ref={bgScrollPointSecondRef}>
+                <div className={`flex flex-col space-y-6 md:space-y-0 md:flex-row md:justify-between w-full md:w-[800px] items-center p-6 ${textClassName}`} ref={bgScrollPointSecondRef}>
                     <div className="flex flex-col items-center space-y-2 w-full">
                         <p>物件オーナー・管理者の方</p>
                         <LinkButtonWithIcon
