@@ -6,28 +6,34 @@ import LuupBorder from "../../atoms/LuupBorder/LuupBorder";
 function PortEstablish() {
     return (
         <div className="bg-gray-300 flex flex-col items-center py-16 w-full">
-            <div className="grid grid-cols-5 w-[1100px]">
+            <div className="flex flex-col md:grid md:grid-cols-5 md:w-[1100px]">
+                <MyImage
+                    info={ImageInfos.NewPort}
+                    className="md:hidden w-[610px]"
+                />
 
-                <div className="col-span-2 flex flex-col space-y-8 justify-center p-16 text-white">
-                    <h1 className="text-3xl">ポート設置のご相談</h1>
-                    <p>
+                <div className="col-span-2 flex flex-col space-y-6 md:space-y-8 justify-center pt-6 md:pt-14 md:p-16 text-white">
+                    <h1 className="text-xl md:text-3xl">ポート設置のご相談</h1>
+                    
+                    <p className="text-xs md:text-base">
                         物件の空きスペースに、<br />
                         LUUPポートを設置しませんか？
                     </p>
+
                     <div className="flex flex-col space-y-4">
                         <LinkButtonWithIcon
                             label="ポート設置をご検討の方へ"
-                            className="text-white"
+                            className="text-sm md:text-base text-white h-[60px]"
                             />
                         
                         <LinkButtonWithIcon
                             label="ポート設置リクエスト"
-                            className="text-white"
+                            className="text-sm md:text-base text-white h-[60px]"
                         />
                     </div>
                 </div>
 
-                <div className="col-span-3">
+                <div className="hidden md:block col-span-3">
                     <div className="relative">
                         {/* TODO: 位置調整の方法を考える */}
                         <div className="relative left-24 top-[-90px]">
