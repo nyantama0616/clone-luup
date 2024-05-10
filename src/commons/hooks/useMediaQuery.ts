@@ -6,8 +6,8 @@
 import { useEffect, useState } from 'react'
 
 export const mediaQuery = {
-    sp: 'width < 752px',
-    // tablet: '752px <= width < 1122px',
+    sp: 'width < 768px',
+    // tablet: '768px <= width < 1122px',
     pc: '1122px <= width',
 }
 

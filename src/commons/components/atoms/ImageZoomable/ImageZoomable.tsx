@@ -1,10 +1,10 @@
 import GeneralProps2 from "@/commons/types/GeneralProps2";
-import ImageInfo from "@/commons/classes/ImageInfo";
+import { IImageInfo } from "@/commons/classes/ImageInfo";
 import "./ImageZoomable.css";
 
 // TODO: Scaleする倍率を変えられるようにする
 interface ImageZoomableProps extends GeneralProps2 {
-    imageInfo: ImageInfo;
+    imageInfo: IImageInfo;
     isHovered?: boolean;
 }
 

@@ -55,7 +55,7 @@ interface NewsItemProps {
     className?: string;
 }
 
-function NewsItem({ imageInfo, date, title, className = "" }: NewsItemProps) {
+export function NewsItem({ imageInfo, date, title, className = "" }: NewsItemProps) {
     const { isHovered, handleMouseEnter, handleMouseLeave } = useNewsItem();
     const _className = `flex items-center border-t ${className}`;
 
@@ -89,7 +89,7 @@ interface NewsItemController {
     handleMouseLeave: () => void;
 }
 
-function useNewsItem(): NewsItemController {
+export function useNewsItem(): NewsItemController {
     const [isHovered, setIsHovered] = useState(false);
 
     const handleMouseEnter = () => {
@@ -103,7 +103,7 @@ function useNewsItem(): NewsItemController {
     return { isHovered, handleMouseEnter, handleMouseLeave };
 }
 
-function getDate(date: Date) {
+export function getDate(date: Date) {
     const year = date.getFullYear();
     const month = date.getMonth() + 1;
     const day = date.getDate();

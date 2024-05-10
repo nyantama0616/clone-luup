@@ -10,9 +10,9 @@ function CatchCopy({ className }: CatchCopyProps) {
     const _className = `flex flex-col text-dark space-y-2 ${className}`;
     return (
         <div className={_className}>
-            <p className="mb-4 text-3xl leading-normal">
+            <p className="mb-4 text-2xl md:text-3xl leading-normal">
                 街じゅうを
-                <br />
+                <br className="hidden md:inline"/>
                 「駅前化」する
                 <br />
                 インフラをつくる
