@@ -36,8 +36,11 @@
 		Port3: new ImageInfo("/images/port3.webp", 1440, 1080),
 		ServiceUsage: new ImageInfo("/images/serviceUsage.webp", 800, 1160),
 		Why0: new ImageInfo("/images/why0.webp", 1500, 1000),
+		Why0sp: new ImageInfo("/images/why0sp.webp", 800, 935),
 		Why1: new ImageInfo("/images/why1.webp", 1500, 964),
+		Why1sp: new ImageInfo("/images/why1sp.webp", 800, 866),
 		Why2: new ImageInfo("/images/why2.webp", 1500, 916),
+		Why2sp: new ImageInfo("/images/why2sp.webp", 800, 825),
       }
 
       export default ImageInfos;

@@ -5,24 +5,32 @@ import ImageInfos from "@/commons/enums/images.gen";
 import LinkButtonWithIcon from "../../atoms/LinkButtonWithIcon/LinkButtonWithIcon";
 import { useDesignContext } from "@/commons/contexts/DesignContext";
 import ImageSlideShow from "../../molecules/ImageSlideShow/ImageSlideShow";
+import { useMediaQuery, mediaQuery } from "@/commons/hooks/useMediaQuery";
 
 function WhyLuup() {
     const { showWhyLuup, whyLuupRef } = useDesignContext();
-    const images = [
+
+    const isMobile = useMediaQuery(mediaQuery.sp);
+
+    const images = (isMobile ? [
+        ImageInfos.Why0sp,
+        ImageInfos.Why1sp,
+        ImageInfos.Why2sp,
+    ] : [
         ImageInfos.Why0,
         ImageInfos.Why1,
         ImageInfos.Why2,
-    ].map(info => info.plainObject);
+    ]).map(info => info.plainObject);
 
     return (
         <div className="w-full flex justify-center">
-            <div className="flex flex-col space-y-20 p-4 w-[1100px]">
+            <div className="flex flex-col space-y-12 md:space-y-20 p-6 md:p-4 w-full md:w-[1100px]">
                 <div ref={whyLuupRef}>
-                    <GhostText text="Why LUUP" appear={showWhyLuup} className="text-7xl pb-6"/>
-                    <p className="text-2xl">LUUPが提供する価値</p>
+                    <GhostText text="Why LUUP" appear={showWhyLuup} className="text-5xl md:text-7xl pb-6"/>
+                    <p className="text-xl md:text-2xl">LUUPが提供する価値</p>
                 </div>
                 
-                <ol className="grid grid-cols-3 gap-8">
+                <ol className="md:grid md:grid-cols-3 gap-8">
                     <ListItem index={1}>
                         <p>
                             日本の交通課題を解決する<br />
@@ -50,14 +58,13 @@ function WhyLuup() {
                     TODO: Slide Showにする
                     Next.jsではクラスをpropsに渡したりできないらしい
                 */}
-                {/* <MyImage info={ImageInfos.Why0} /> */}
                 <ImageSlideShow imageInfos={images} className="w-full h-[730px]"/>
 
                 <div className="flex flex-col items-center space-y-4">
-                    <p>なぜLUUPを社会実装するのか？</p>
+                    <p className="text-xs md:text-base">なぜLUUPを社会実装するのか？</p>
                     <LinkButtonWithIcon
                         label="Why LUUP"
-                        className="w-[300px] h-[60px]"
+                        className="w-full md:w-[300px] h-[60px]"
                     />
                 </div>
             </div>
@@ -73,8 +80,8 @@ interface ListItemProps {
 function ListItem({ index, children }: ListItemProps) {
     const indexStr = `${index.toString().padStart(2, '0')}.`;
     return (
-        <li className="border-t pt-8 leading-relaxed">
-            <h3 className="text-5xl pb-6">{indexStr}</h3>
+        <li className="flex items-center md:block border-t py-10 md:py-0 md:pt-8 leading-loose">
+            <h3 className="text-4xl md:text-5xl mr-6 md:pb-6">{indexStr}</h3>
             {children}
         </li>
     );
