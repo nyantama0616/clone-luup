@@ -12,8 +12,8 @@ function Footer() {
     
     return (
         <footer className="w-full flex" ref={footerRef}>
-            <div className="flex justify-center items-center bg-gray-400 w-full rounded-md">
-                <div className="x-2 w-[1250px] h-[790px] px-9 pt-32 text-white flex space-x-16">
+            <div className="flex md:justify-center items-center bg-gray-400 w-full rounded-md">
+                <div className="x-2 w-full md:w-[1250px] md:h-[790px] px-6 md:px-9 py-12 md:pt-32 text-white flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-16">
                     <div className="flex flex-col space-y-4 text-sm">
                         <div className="w-32 h-16 relative">
                             <LuupIcon className="w-full h-full fill-white"/>
@@ -30,24 +30,24 @@ function Footer() {
                             <p>Follow us</p>
                             <div className="mt-2 flex space-x-4">
                                 {/* TODO: コンポーネント化する */}
-                                <a className="w-10 h-10 border rounded-full flex justify-center items-center hover:bg-white">
+                                <a className="w-10 h-10 border rounded-full flex justify-center items-center hover:bg-white" href="#">
                                     <div className="w-5 h-5 relative">
                                         <TwitterIcon className="w-full h-full fill-white hover:fill-gray-400"/>
                                     </div>
                                 </a>
                                 
-                                <a className="w-10 h-10 border rounded-full flex justify-center items-center hover:bg-white">
+                                <a className="w-10 h-10 border rounded-full flex justify-center items-center hover:bg-white" href="#">
                                     <div className="w-5 h-5 relative">
                                         <InstagramIcon className="w-full h-full fill-white hover:fill-gray-400"/>
                                     </div>
                                 </a>
                                 
                                 {/* TODO: Noteをちゃんと表示する */}
-                                <a className="w-10 h-10 border rounded-full flex justify-center items-center hover:bg-white">
+                                {/* <a className="w-10 h-10 border rounded-full flex justify-center items-center hover:bg-white" href="#">
                                     <div className="w-5 h-5 relative">
                                         <NoteIcon className="w-full h-full fill-white hover:fill-gray-400"/>
                                     </div>
-                                </a>
+                                </a> */}
                             </div>
                         </div>
 
@@ -57,7 +57,7 @@ function Footer() {
 
                     </div>
                     
-                    <div className="w-[380px]">
+                    <div className="md:w-[380px]">
                         <FooterLinkButton label="Why LUUP"/>
                         <ul className="pl-4">
                             <li><FooterLinkButton label="ー 街を活性化する次世代インフラ"/></li>
@@ -72,7 +72,7 @@ function Footer() {
                         <FooterLinkButton label="ポート設置をご検討の方へ" />
                     </div>
                     
-                    <div className="w-[288px]">
+                    <div className="md:w-[288px]">
                         <FooterLinkButton label="LUUP Letter" />
                         <FooterLinkButton label="採用情報" />
                         <FooterLinkButton label="ヘルプセンター" />
