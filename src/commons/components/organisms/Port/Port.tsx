@@ -13,7 +13,7 @@ import DropdownOtherCountry from "../../molecules/Dropdown/DropdownOtherCountry/
 function Port() {
     const { backgroundStatus, bgScrollPointFirstRef, bgScrollPointSecondRef } = useDesignContext();
     const textClassName = backgroundStatus === BackgroundStatus.DARK ? "transition-colors duration-1000 text-white" : "transition-colors duration-1000 text-black";
-    const linkButtonClassName = `w-[300px] h-[60px] mt-8 ${textClassName}`;
+    const linkButtonClassName = `w-full md:w-[300px] h-[60px] mt-8 ${textClassName}`;
 
     const images = [
         ImageInfos.Port1,
@@ -22,77 +22,76 @@ function Port() {
     ].map(info => info.changeHeight(360).plainObject);
 
     return (
-        <div className={`w-full flex flex-col items-center space-y-28 ${textClassName}`} ref={bgScrollPointFirstRef}>
-            <div className="flex flex-col items-center space-y-8">
+        <div className={`w-full flex flex-col items-center space-y-12 md:space-y-28 ${textClassName}`} ref={bgScrollPointFirstRef}>
+            <div className="flex flex-col items-center space-y-9 md:space-y-8 w-full pl-6 md:pl-0">
                 
                 {/* TODO: 上の要素との距離を取るため。他の方法を考える */}
-                <div className="h-[150px]"></div>
+                <div className="md:h-[150px]"></div>
 
                 <div className="relative">
                     <LuupBorder />
                 </div>
 
-                <div className="flex flex-col space-y-2 w-[1100px]">
-                    <GhostText text="Port" className="text-8xl" appear={backgroundStatus === BackgroundStatus.DARK} />
-                    <p className="text-xl">LUUPポート</p>
+                <div className="flex flex-col space-y-6 md:space-y-2 w-full md:w-[1100px]">
+                    <GhostText text="Port" className="text-6xl md:text-8xl" appear={backgroundStatus === BackgroundStatus.DARK} />
+                    <p className="text-lg md:text-xl">LUUPポート</p>
                 </div>
             </div>
             
             <ImageSlider imageInfos={images} className="w-full h-[360px]" />
 
-            <div className="grid grid-cols-2 gap-2 w-[1100px]">
+            <div className="grid md:grid-cols-2 gap-8 md:gap-2 w-full px-8 md:px-0 md:w-[1100px]">
                 <div className="row-span-2">
-                    <p className="text-2xl leading-relaxed">
+                    <p className="text-xl md:text-2xl leading-relaxed">
                         物件の空きスペースに、<br />
                         LUUPポートを設置しませんか？
                     </p>
                 </div>
                 
                 <div>
-                    <p className="leading-relaxed">
-                        ちょっとした移動が楽になったり、デッドスペースの収益化 <br />
-                        につながります。 自販機2台分のスペースがあれば導入でき、<br />
-                        設置費用・維持コストは一切かかりません。 ぜひ下記 <br />
+                    <p className="leading-relaxed text-xs md:text-base">
+                        ちょっとした移動が楽になったり、デッドスペースの収益化 <br className="hidden md:inline"/>
+                        につながります。 自販機2台分のスペースがあれば導入でき、<br className="hidden md:inline"/>
+                        設置費用・維持コストは一切かかりません。 ぜひ下記 <br className="hidden md:inline" />
                         お問い合わせフォームよりお気軽にご相談ください。
                     </p>
                 </div>
 
                 <LinkButtonWithIcon
                     label="ポート設置をご検討の方へ"
-                    className={`${linkButtonClassName} mt-8`}
+                    className={`${linkButtonClassName} mt-8 w-full md:w-[300px]`}
                 />
             </div>
 
-            <div className="flex flex-col items-center space-y-10 text-black">
-                <div className="bg-white border rounded-md w-[1150px] h-[500px] grid grid-cols-5">
-                    <div className="col-span-2 h-full flex flex-col justify-center space-y-4 p-10">
-                        <h3 className="text-4xl">
+            <div className="flex flex-col items-center space-y-10 text-black w-full">
+                <div className="bg-white md:rounded-md w-full md:w-[1150px] md:h-[500px] md:grid md:grid-cols-5">
+                    <div className="md:col-span-2 h-full flex flex-col justify-center space-y-4 py-12 px-14">
+                        <h3 className="text-xl md:text-4xl">
                             提供エリア拡大中
                         </h3>
 
                         <p className="leading-loose">
-                            展開エリアに高密度にポートを設置。<br />
-                            アプリをダウンロードして、<br />
-                            最寄りのポート（LUUP専用駐車場）を <br />
+                            展開エリアに高密度にポートを設置。<br className="hidden md:inline" />
+                            アプリをダウンロードして、<br/>
+                            最寄りのポート（LUUP専用駐車場）を <br className="hidden md:inline" />
                             検索してみましょう。
                         </p>
 
                         <div className="grid grid-cols-2 gap-2 w-full">
-                            {/* TODO: アイコンなしにする */}
                             <LinkButtonNoIcon label="東京" className="h-[40px]"/>
                             <LinkButtonNoIcon label="大阪" className="h-[40px]"/>
                             <LinkButtonNoIcon label="横浜" className="h-[40px]"/>
-                            <LinkButtonNoIcon label="京都" className="h-[40px]"/>
-                            {/* TODO: その他を追加 */}
+                            <LinkButtonNoIcon label="京都" className="h-[40px]" />
+                            
                             <DropdownOtherCountry className="col-span-2 h-[50px] mt-2" />
                         </div>
                     </div>
-
-                    <PortMap className="col-span-3 h-full" />
+        
+                    <PortMap className="md:col-span-3 h-full w-full" />
                 </div>
 
-                <div className={`flex justify-between w-[800px] ${textClassName}`} ref={bgScrollPointSecondRef}>
-                    <div className="flex flex-col items-center space-y-2">
+                <div className={`flex flex-col md:flex-row md:justify-between w-full md:w-[800px] items-center p-6 ${textClassName}`} ref={bgScrollPointSecondRef}>
+                    <div className="flex flex-col items-center space-y-2 w-full">
                         <p>物件オーナー・管理者の方</p>
                         <LinkButtonWithIcon
                             label="ポート設置をご検討の方へ"
@@ -100,7 +99,7 @@ function Port() {
                         />
                     </div>
 
-                    <div className="flex flex-col items-center space-y-2">
+                    <div className="flex flex-col items-center space-y-2 w-full">
                         <p>ユーザーの方</p>
                         <LinkButtonWithIcon
                             label="ポート設置リクエスト"
