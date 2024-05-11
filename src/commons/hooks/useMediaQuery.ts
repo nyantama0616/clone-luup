@@ -7,29 +7,34 @@ import { useEffect, useState } from 'react'
 
 export const mediaQuery = {
     sp: 'width < 768px',
-    // tablet: '768px <= width < 1122px',
     pc: '1122px <= width',
 }
 
 export const useMediaQuery = (query: string) => {
     const formattedQuery = `(${query})`
-    const [match, setMatch] = useState(false); //TODO: なんでこれでレスポンシブ対応できてるのか分からん！
+    const [match, setMatch] = useState(false);
 
     useEffect(() => {
-        const mql = matchMedia(formattedQuery)
+        // windowオブジェクトとmatchMediaメソッドの存在を確認
+        if (typeof window !== 'undefined' && window.matchMedia) {
+            const mql = window.matchMedia(formattedQuery)
 
-        if (mql.media === 'not all' || mql.media === 'invalid') {
-            console.error(`useMediaQuery Error: Invalid media query`)
-        }
+            if (mql.media === 'not all' || mql.media === 'invalid') {
+                console.error(`useMediaQuery Error: Invalid media query`)
+            }
 
-        mql.onchange = (e) => {
-            setMatch(e.matches)
-        }
+            mql.onchange = (e) => {
+                setMatch(e.matches)
+            }
 
-        return () => {
-            mql.onchange = null
+            // 初回実行時に現在のマッチ状態を設定
+            setMatch(mql.matches)
+
+            return () => {
+                mql.onchange = null
+            }
         }
-    }, [formattedQuery, setMatch])
+    }, [formattedQuery])
 
     return match
 }
