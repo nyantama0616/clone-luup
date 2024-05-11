@@ -11,7 +11,7 @@ function QuestionForCommunity({className=""}: GeneralProps2) {
             <TextField label="メールアドレス" placeholder="info@luup.sc" required/>
             <TextField label="会社名/自治体名" placeholder="株式会社LUUP" required/>
             <TextField label="部署名" placeholder="広報部" required/>
-            <TextField label="役職" placeholder="部長" required />
+            <TextField label="役職" placeholder="部長" />
             <TextField label="お名前" placeholder="山田太郎" required />
             <TextField label="ふりがな" placeholder="やまだたろう" required />
             <TextField label="電話番号" placeholder="123456789" required />

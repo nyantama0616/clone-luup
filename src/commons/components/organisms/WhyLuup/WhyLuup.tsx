@@ -58,7 +58,7 @@ function WhyLuup() {
                     TODO: Slide Showにする
                     Next.jsではクラスをpropsに渡したりできないらしい
                 */}
-                <ImageSlideShow imageInfos={images} className="w-full h-[730px]"/>
+                <ImageSlideShow imageInfos={images} className="w-full h-[500px] md:h-[730px]"/>
 
                 <div className="flex flex-col items-center space-y-4">
                     <p className="text-xs md:text-base">なぜLUUPを社会実装するのか？</p>

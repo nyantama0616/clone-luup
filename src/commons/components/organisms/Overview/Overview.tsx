@@ -68,7 +68,7 @@ function Overview() {
 
 function ButtonsForMobile() {
     return (
-        <div className="flex flex-col w-[400px] space-y-12 mt-12">
+        <div className="flex flex-col w-full max-w-[400px] space-y-12 mt-12">
             <div className="flex justify-center items-center space-x-6">
                 <LinkButtonImage imageInfo={ImageInfos.AppStore.changeWidth(120)} />
                 <LinkButtonImage imageInfo={ImageInfos.GooglePlay.changeWidth(150)} />
@@ -95,7 +95,7 @@ interface NewsItemProps {
 
 export function NewsItem({ imageInfo, date, title, className = "" }: NewsItemProps) {
     const { isHovered, handleMouseEnter, handleMouseLeave } = useNewsItem();
-    const _className = `flex items-center border-t p-2 border border-gray-200 rounded-md ${className}`;
+    const _className = `flex items-center p-2 border border-gray-200 rounded-md w-full ${className}`;
 
     const textDecoration = isHovered ? "underline" : "none";
 
