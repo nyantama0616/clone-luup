@@ -31,7 +31,8 @@ function TextField({ label, required = false, placeholder="", className="", name
                 required={required}
                 name={name}
                 value={value}
-                className="grow h-[56px] px-3 py-2 border border-gray-200 rounded-md placeholder-gray-200 focus:ring-red focus:border-red mt-3 md:mt-0 w-full md:w-[400px]"
+                className={`grow h-[56px] px-3 py-2 border border-gray-200 rounded-md placeholder-gray-200 mt-3 md:mt-0 w-full md:w-[400px]
+                            focus:ring-primary-200`}
             />
         </label>
     );

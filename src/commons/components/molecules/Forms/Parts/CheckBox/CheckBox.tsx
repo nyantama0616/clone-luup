@@ -60,18 +60,20 @@ interface CheckBoxItemProps {
 
 function CheckBoxItem({ label, checked = false, value, onSelected }: CheckBoxItemProps) {
     return (
-        <div className="flex items-center space-x-4">
+        <label className="text-base md:text-xl flex items-center space-x-4 cursor-pointer">
             <input type="checkbox" className="w-5 h-5 md:w-8 md:h-8" onChange={() => { onSelected && onSelected(value) }} checked={checked} />
-            <label className="text-base md:text-xl">{label}</label>
-        </div>
+            <p>{label}</p>
+        </label>
     );
 }
 
 function OtherOption({ checked, value, onSelected, onChanged }: IOtherOption) {
     return (
         <div className="flex items-center space-x-4">
-            <input type="checkbox" className="appearance-none w-5 h-5 md:w-8 md:h-8" onChange={() => { onSelected && onSelected() }} checked={checked} />
-            <label className="text-base md:text-xl">その他:</label>
+            <label className="flex space-x-3 text-base md:text-xl cursor-pointer">
+                <input type="checkbox" className="w-5 h-5 md:w-8 md:h-8" onChange={() => { onSelected && onSelected() }} checked={checked} />
+                <p>その他:</p>
+            </label>
             <input type="text" className="w-[250px] h-[56px] px-3 py-2 border border-gray-200 rounded-md" value={value} />
         </div>
     );

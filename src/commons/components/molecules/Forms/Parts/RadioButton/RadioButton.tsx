@@ -1,4 +1,5 @@
 import GeneralProps2 from "@/commons/types/GeneralProps2";
+import "./RadioButton.css";
 
 interface RadioOption {
     id: number;
@@ -49,12 +50,14 @@ interface RadioItemProps {
     onSelected?: (value: number) => void;
 }
 
-function RadioItem({ label, checked=false, value , onSelected}: RadioItemProps) {
+function RadioItem({ label, checked = false, value, onSelected }: RadioItemProps) {
+    const subClassName = checked ? "radio-focused" : "radio-unfocused";
+
     return (
-        <div className="flex items-center space-x-4">
-            <input type="radio" className="w-5 h-5 md:w-8 md:h-8" onChange={() => { onSelected && onSelected(value) }} checked={checked} />
-            <label className="text-base md:text-xl">{label}</label>
-        </div>
+        <label className="text-base md:text-xl flex items-center space-x-4 cursor-pointer">
+            <input type="radio" className={`appearance-none w-5 h-5 md:w-8 md:h-8 border border-gray-200 rounded-full bg-white text-white cursor-pointer ${subClassName}`} onChange={() => { onSelected && onSelected(value) }} checked={checked} />
+            <p>{label}</p>
+        </label>
     );
 }
 
