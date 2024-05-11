@@ -15,7 +15,7 @@ function News() {
 
     return (
         <div className="flex justify-center">
-            <div className="flex flex-col space-y-12 md:space-y-0 md:flex-row md:space-x-24 w-full md:w-[1250px] bg-white px-8 md:px-24 pb-16 rounded-md relative">
+            <div className="flex flex-col space-y-12 md:space-y-0 md:flex-row md:space-x-24 w-full md:max-w-[1250px] bg-white px-8 md:px-24 pb-16 rounded-md relative">
                 <div className="flex flex-col space-y-4 md:w-[200px] md:h-[370px] pt-16 md:sticky top-0">
                     <div>
                         <h1 className="text-5xl mb-2">News</h1>
@@ -39,7 +39,7 @@ function News() {
                     <LinkButtonWithIcon label="News一覧へ" className="hidden md:flex w-[200px] text-sm"/>
                 </div>
 
-                <div className="md:pt-16 md:w-[750px]">
+                <div className="md:pt-16 md:max-w-[750px]">
                     <h5 className="pb-4">最新情報</h5>
                     <ul>
                         <NewsItem imageInfo={ImageInfos.News0.changeWidth(imageWidth)} date={new Date()} title="プレミアホテル-CABIN PRESIDENT-東京に「LUUP」のポートを導入"/>

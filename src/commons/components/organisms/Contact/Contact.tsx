@@ -6,7 +6,7 @@ function Contact() {
     const { contactRef, showContact } = useDesignContext();
 
     return (
-        <div className="flex flex-col w-full md:w-[1250px] p-6 md:p-0 space-y-8" ref={contactRef}>
+        <div className="flex flex-col w-full md:max-w-[1250px] p-6 md:p-2 space-y-8" ref={contactRef}>
             <div>
                 <GhostText text="Contact" className="text-6xl md:text-8xl mb-4" appear={showContact} />
                 <p className="text-xl">お問い合わせ</p>

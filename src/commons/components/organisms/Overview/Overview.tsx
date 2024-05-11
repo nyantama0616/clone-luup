@@ -40,7 +40,7 @@ function Overview() {
                 {isMobile && <ButtonsForMobile />}
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 md:w-[1200px]">
+            <div className="grid grid-cols-1 md:grid-cols-2 md:max-w-[1200px]">
                 <div className="flex items-center p-4">
                     <p className="leading-8 md:leading-loose text-sm md:text-base">
                         LUUPは、街じゅうのどこにいてもスマホ一つで好きな場所へ簡単に行くことができる、新しい移動の選択肢です。街には「ポート」という移動のハブがあり、いつでもポートからポートへ電動マイクロモビリティに乗って移動することができます。かつて鉄道の駅が街を発展させたように、LUUPのポートを街じゅうに設置することで人が集まる場所をつくり、街じゅうを駅前のように活性化していきます。そして、年齢に関係なく誰もが安全に、シェア型でサステナブルな移動ができる未来のインフラをつくることを目指しています。

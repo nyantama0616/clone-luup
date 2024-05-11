@@ -23,7 +23,7 @@ function Port() {
 
     return (
         <div className={`w-full flex flex-col items-center space-y-12 md:space-y-28 ${textClassName}`} ref={bgScrollPointFirstRef}>
-            <div className="flex flex-col items-center space-y-9 md:space-y-8 w-full pl-6 md:pl-0">
+            <div className="flex flex-col items-center space-y-9 md:space-y-8 w-full pl-6 md:pl-2">
                 
                 {/* TODO: 上の要素との距離を取るため。他の方法を考える */}
                 <div className="md:h-[150px]"></div>
@@ -32,7 +32,7 @@ function Port() {
                     <LuupBorder />
                 </div>
 
-                <div className="flex flex-col space-y-6 md:space-y-2 w-full md:w-[1100px]">
+                <div className="flex flex-col space-y-6 md:space-y-2 w-full md:max-w-[1100px]">
                     <GhostText text="Port" className="text-6xl md:text-8xl" appear={backgroundStatus === BackgroundStatus.DARK} />
                     <p className="text-lg md:text-xl">LUUPポート</p>
                 </div>
@@ -40,7 +40,7 @@ function Port() {
             
             <ImageSlider imageInfos={images} className="w-full h-[360px]" />
 
-            <div className="grid md:grid-cols-2 gap-8 md:gap-2 w-full px-8 md:px-0 md:w-[1100px]">
+            <div className="grid md:grid-cols-2 gap-8 md:gap-2 w-full px-8 md:px-2 md:max-w-[1100px]">
                 <div className="row-span-2">
                     <p className="text-xl md:text-2xl leading-relaxed">
                         物件の空きスペースに、<br />
@@ -64,8 +64,8 @@ function Port() {
             </div>
 
             <div className="flex flex-col items-center space-y-10 text-black w-full">
-                <div className="bg-white md:rounded-md w-full md:w-[1150px] md:h-[500px] md:grid md:grid-cols-5">
-                    <div className="md:col-span-2 h-full flex flex-col justify-center space-y-4 py-12 px-14">
+                <div className="bg-white md:rounded-md w-full md:max-w-[1150px] md:h-[500px] md:flex md:justify-between">
+                    <div className="md:col-span-2 h-full flex flex-col justify-center space-y-4 py-12 px-14 md:w-[600px]">
                         <h3 className="text-xl md:text-4xl">
                             提供エリア拡大中
                         </h3>
@@ -87,7 +87,7 @@ function Port() {
                         </div>
                     </div>
         
-                    <PortMap className="md:col-span-3 h-full w-full md:rounded-md" />
+                    <PortMap className="md:flex-shrink-0 h-full md:rounded-md border" />
                 </div>
 
                 <div className={`flex flex-col space-y-6 md:space-y-0 md:flex-row md:justify-between w-full md:w-[800px] items-center p-6 ${textClassName}`} ref={bgScrollPointSecondRef}>
