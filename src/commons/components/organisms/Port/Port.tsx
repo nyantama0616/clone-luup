@@ -87,7 +87,7 @@ function Port() {
                         </div>
                     </div>
         
-                    <PortMap className="md:col-span-3 h-full w-full" />
+                    <PortMap className="md:col-span-3 h-full w-full md:rounded-md" />
                 </div>
 
                 <div className={`flex flex-col space-y-6 md:space-y-0 md:flex-row md:justify-between w-full md:w-[800px] items-center p-6 ${textClassName}`} ref={bgScrollPointSecondRef}>
