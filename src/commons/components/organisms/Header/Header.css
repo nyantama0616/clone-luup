@@ -29,3 +29,20 @@
 header {
     z-index: 2; /* マスクより手前にするため */
 }
+
+.header-fade-in {
+    background-color: white;
+    animation: header-fade-in 0.5s ease-in-out forwards;
+}
+
+@keyframes header-fade-in {
+    0% {
+        opacity: 0;
+        top: 0;
+    }
+    
+    100% {
+        opacity: 1;
+        top: 0;
+    }
+}
