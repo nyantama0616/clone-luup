@@ -15,10 +15,6 @@ const meta = {
         },
     },
     tags: ['autodocs'],
-    argTypes: {
-        onClick: { action: 'clicked' },
-    },
-    args: { onClick: fn() },
 } satisfies Meta<typeof LinkButtonWithIcon>;
 
 export default meta;

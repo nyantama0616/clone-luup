@@ -17,12 +17,6 @@ function Dropdown({ label = "", spawned, className, border="border" }: DropdownP
     const _className = `w-full h-full ${border} rounded-md border-${borderColor} flex justify-between items-center px-4 cursor-pointer`;
     const spawnedClassName = `absolute mt-2 ${spawned?.props.className || ""}`;
     const spawnedWithProps = React.cloneElement(spawned!, { className: spawnedClassName });
-
-    useEffect(() => {
-        console.log("isClicked", isClicked);
-        
-    }, [isClicked]);
-
     
     return (
         <div
@@ -66,17 +60,12 @@ function useDropdown(): DropdownController {
 
     function _documentClickHandler(e: MouseEvent) {
         if (ref.current?.contains(e.target as Node)) return;
-
-        console.log("document click");
-        
-        
         setIsClicked(false);
         document.body.removeEventListener("click", _documentClickHandler);
     }
 
     function handleClick() {
         setIsClicked(true);
-        console.log("click");
         document.body.addEventListener("click", _documentClickHandler);
     }
 

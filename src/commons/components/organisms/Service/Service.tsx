@@ -86,13 +86,10 @@ function useServiceItem(): ServiceItemController {
     const [isHovered, setIsHovered] = useState(false);
     
     function handleMouseEnter() {
-        console.log("enter!");
-        
         setIsHovered(true);
     }
     
     function handleMouseLeave() {
-        console.log("leave!");
         setIsHovered(false);
     }
 
