@@ -90,7 +90,7 @@ interface FormMainController {
 }
 
 function useFormMain(): FormMainController{
-    const [formType, setFormType] = useState<Forms>(Forms.Media);
+    const [formType, setFormType] = useState<Forms>(Forms.None);
 
     function handleSelectFormType(value: number) {        
         setFormType(value);

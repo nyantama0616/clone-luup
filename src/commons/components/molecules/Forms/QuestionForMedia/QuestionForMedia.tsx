@@ -3,6 +3,7 @@ import CheckBox from "../Parts/CheckBox/CheckBox";
 import TextArea from "../Parts/TextArea/TextArea";
 import GeneralProps2 from "@/commons/types/GeneralProps2";
 import LinkButtonPlain from "@/commons/components/atoms/LinkButtonPlain/LinkButtonPlain";
+import LinkButtonWithIcon from "@/commons/components/atoms/LinkButtonWithIcon/LinkButtonWithIcon";
 
 const optionsForReport = [
     {
@@ -94,7 +95,7 @@ function QuestionForMedia({className=""}: GeneralProps2) {
             <CheckBox label="ご希望の取材形態" required options={optionsForReport} otherOption={otherOptionForReport}/>
             <CheckBox label="ご希望の取材形態" required options={optionsForWhereLuup} otherOption={otherOptionForWhereLuup}/>
             <TextArea label="お問い合わせ内容" placeholder="お問い合わせの内容をご記入ください。" required/>
-            <LinkButtonPlain label="送信確認" className="w-1/3 h-[60px] mx-auto border" />
+            <LinkButtonWithIcon label="送信確認" className="w-[300px] h-[60px] mx-auto border" textAlign="center"/>
         </div>
   );
 }

@@ -45,7 +45,7 @@ function QuestionForApp({className=""}: GeneralProps2) {
             <RadioButton label="お問い合わせ内容" required options={options} />
             <TextArea label="お問い合わせ詳細" placeholder="お問い合わせの内容をご記入ください。" required/>
             {/* <LinkButtonPlain label="送信確認" className="w-1/3 h-[60px] mx-auto border" /> */}
-            <LinkButtonWithIcon label="送信確認" className="w-[300px] h-[60px] mx-auto border" />
+            <LinkButtonWithIcon label="送信確認" className="w-[300px] h-[60px] mx-auto border" textAlign="center"/>
         </div>
   );
 }
