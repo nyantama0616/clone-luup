@@ -20,7 +20,7 @@ function ImageZoomable({ imageInfo, className = '', isHovered = false, rounded=t
     return (
         <div className={_className}>
             {/* TODO: Tailwindはなぜかたまに、文字列中の式展開が効かないことがある */}
-            <a className={childClassName} href="#" style={{backgroundImage: bgImage, width: imageInfo.width, height: imageInfo.height}}></a>
+            <div className={childClassName} style={{backgroundImage: bgImage, width: imageInfo.width, height: imageInfo.height}}></div>
         </div>
     );
 }
