@@ -54,14 +54,14 @@ function getForm(formType: Forms) {
 }
 
 function FormMain({ className = "" }: GeneralProps2) {
-    const _className = `flex flex-col space-y-6 justify-start ${className}`;
+    const _className = `flex flex-col space-y-6 justify-start px-6 md:px-0 ${className}`;
     const { formType, handleSelectFormType } = useFormMain();
 
     const Question = getForm(formType);
 
     return (
         <div className={_className}>
-            <p className="">下記よりお問い合わせの種類をお選びください</p>
+            <p className="text-sm md:text-base">下記よりお問い合わせの種類をお選びください</p>
             <RadioButton
                 label="お問い合わせの種類"
                 options={options}

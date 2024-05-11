@@ -18,7 +18,7 @@ interface RadioButtonProps extends GeneralProps2 {
 function RadioButton({ label, required = false, name, value=0, options=[], className="", onSelected }: RadioButtonProps) {
     const requiredBgColor = required ? "bg-black" : "";
     const requiredText = required ? "必須" : "";
-    const _className = `grid grid-cols-4 gap-8 ${className}`;
+    const _className = `flex flex-col md:flex-row md:space-x-6 ${className}`;
 
     const items = options.map((option, index) => {
         return (
@@ -28,15 +28,15 @@ function RadioButton({ label, required = false, name, value=0, options=[], class
 
     return (
         <div className={_className}>
-            <span className="block text-base font-medium text-gray-700">{label}</span>
-
-            <div className="col-span-3 flex space-x-4">
-                <span className={`${requiredBgColor} text-white text-xs rounded-md w-[44px] h-[22px] text-center px-2 py-1`}>
+            <div className="flex items-center md:items-start md:justify-between md:w-[220px]">
+                <span className="block text-xs md:text-base font-medium text-gray-700">{label}</span>
+                <span className={`${requiredBgColor} text-white text-xs rounded-md w-[44px] h-[22px] text-center px-2 py-1 ml-2 md:ml-0`}>
                     {requiredText}
                 </span>
-                <div className="flex flex-col space-y-3">
-                    {items}
-                </div>
+            </div>
+
+            <div className="flex flex-col space-y-3 mt-3 md:mt-0">
+                {items}
             </div>
         </div>
     );
@@ -52,8 +52,8 @@ interface RadioItemProps {
 function RadioItem({ label, checked=false, value , onSelected}: RadioItemProps) {
     return (
         <div className="flex items-center space-x-4">
-            <input type="radio" className="w-8 h-8" onChange={() => { onSelected && onSelected(value) }} checked={checked} />
-            <label className="text-xl">{label}</label>
+            <input type="radio" className="w-5 h-5 md:w-8 md:h-8" onChange={() => { onSelected && onSelected(value) }} checked={checked} />
+            <label className="text-base md:text-xl">{label}</label>
         </div>
     );
 }

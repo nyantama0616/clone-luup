@@ -12,27 +12,27 @@ interface TextFieldProps extends GeneralProps2 {
 function TextArea({ label, required = false, placeholder = "", className = "", name, rows=11, value="" }: TextFieldProps) {
     const requiredBgColor = required ? "bg-black" : "";
     const requiredText = required ? "必須" : "";
-    const _className = `grid grid-cols-4 gap-8 ${className}`;
+    const _className = `flex flex-col md:flex-row md:space-x-6 ${className}`;
     const _placeholder = `${placeholder}`;
 
     return (
         <label className={_className}>
-            <span className="block text-base font-medium text-gray-700">{label}</span>
+            <div className="flex md:justify-between md:w-[220px]">
+                <span className="block text-xs md:text-base font-medium text-gray-700">{label}</span>
 
-            <div className="col-span-3 flex space-x-4">
-                <span className={`${requiredBgColor} text-white text-xs rounded-md w-[44px] h-[22px] text-center px-2 py-1`}>
+                <span className={`${requiredBgColor} text-white text-xs rounded-md w-[44px] h-[22px] text-center px-2 py-1 ml-2 md:ml-0`}>
                     {requiredText}
                 </span>
-
-                <textarea
-                    placeholder={_placeholder}
-                    required={required}
-                    name={name}
-                    rows={rows}
-                    value={value}
-                    className="grow p-6 border border-gray-200 rounded-md placeholder-gray-200 focus:ring-red focus:border-red"
-                />
             </div>
+
+            <textarea
+                placeholder={_placeholder}
+                required={required}
+                name={name}
+                rows={rows}
+                value={value}
+                className="grow p-6 border border-gray-200 rounded-md placeholder-gray-200 focus:ring-red focus:border-red mt-3 md:mt-0"
+            />
         </label>
     );
 }

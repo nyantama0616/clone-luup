@@ -3,6 +3,7 @@ import RadioButton from "../Parts/RadioButton/RadioButton";
 import TextArea from "../Parts/TextArea/TextArea";
 import GeneralProps2 from "@/commons/types/GeneralProps2";
 import LinkButtonPlain from "@/commons/components/atoms/LinkButtonPlain/LinkButtonPlain";
+import LinkButtonWithIcon from "@/commons/components/atoms/LinkButtonWithIcon/LinkButtonWithIcon";
 
 const options = [
     {
@@ -43,7 +44,8 @@ function QuestionForApp({className=""}: GeneralProps2) {
             <TextField label="電話番号" placeholder="123456789" required />
             <RadioButton label="お問い合わせ内容" required options={options} />
             <TextArea label="お問い合わせ詳細" placeholder="お問い合わせの内容をご記入ください。" required/>
-            <LinkButtonPlain label="送信確認" className="w-1/3 h-[60px] mx-auto border" />
+            {/* <LinkButtonPlain label="送信確認" className="w-1/3 h-[60px] mx-auto border" /> */}
+            <LinkButtonWithIcon label="送信確認" className="w-[300px] h-[60px] mx-auto border" />
         </div>
   );
 }

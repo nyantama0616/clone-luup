@@ -12,26 +12,27 @@ interface TextFieldProps extends GeneralProps2 {
 function TextField({ label, required = false, placeholder="", className="", name, value="" }: TextFieldProps) {
     const requiredBgColor = required ? "bg-black" : "";
     const requiredText = required ? "必須" : "";
-    const _className = `grid grid-cols-4 gap-8 items-center ${className}`;
+    const _className = `flex flex-col md:flex-row md:space-x-6 ${className}`;
     const _placeholder = `例）${placeholder}`;
 
     return (
         <label className={_className}>
-            <span className="block text-base font-medium text-gray-700">{label}</span>
-            
-            <div className="col-span-3 flex items-center space-x-4">
-                <span className={`${requiredBgColor} text-white text-xs rounded-md w-[44px] h-[22px] text-center px-2 py-1`}>
+            <div className="flex items-center md:justify-between md:w-[220px]">
+                <span className="block text-xs md:text-base font-medium text-gray-700">{label}</span>
+
+                <span className={`${requiredBgColor} text-white text-xs rounded-md w-[44px] h-[22px] text-center px-2 py-1 ml-2 md:ml-0`}>
                     {requiredText}
                 </span>
-                <input
-                    type="text"
-                    placeholder={_placeholder}
-                    required={required}
-                    name={name}
-                    value={value}
-                    className="grow h-[56px] px-3 py-2 border border-gray-200 rounded-md placeholder-gray-200 focus:ring-red focus:border-red"
-                />
             </div>
+            
+            <input
+                type="text"
+                placeholder={_placeholder}
+                required={required}
+                name={name}
+                value={value}
+                className="grow h-[56px] px-3 py-2 border border-gray-200 rounded-md placeholder-gray-200 focus:ring-red focus:border-red mt-3 md:mt-0 w-full md:w-[400px]"
+            />
         </label>
     );
 }
